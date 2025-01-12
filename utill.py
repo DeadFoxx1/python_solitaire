@@ -1,10 +1,9 @@
 #contaiins utilities used in game
-import obj
 import pygame
 
 
 def game_init():
-
+    from obj import row, deck_main
     #init pygame
     pygame.init()
 
@@ -12,20 +11,22 @@ def game_init():
     pygame.display.set_caption("Pygame Template")
 
     #debug: print atributes of each card in each columns 
-    for column in obj.row:
+    for column in row:
         for card in column.contents:
             print(str(card.value) + str(card.suit) + str(card.is_face_up) + str(card.image))
         print("\n")
 
-    for card in obj.deck_main.contents:
+    for card in deck_main.contents:
         print(str(card.value) + str(card.suit) + str(card.is_face_up) + str(card.image))
 
 def display_row():
+    from setting import get_x_offset, Y_OFFSET
+    from obj import row, screen
     x = 0
     y = 0
-    for column in obj.row:
+    for column in row:
         y = 0
         for card in column.contents:
-            obj.screen.blit(card.image, (x, y))
-            y += (obj.screen.get_size()[1]) / 7
-        x += (obj.screen.get_size()[0]) / 7
+            screen.blit(card.image, (x, y))
+            y += Y_OFFSET
+        x += get_x_offset()

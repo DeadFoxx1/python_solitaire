@@ -4,13 +4,21 @@ BG_COLOR = (48,255,33)
 
 SCREEN_WIDTH, SCREEN_HEIGHT = (500, 800)
 
-def get_CARD_WIDTH():
+def get_card_width():
     from obj import screen
-    return int(screen.get_size()[0] / 7)
+    if screen.get_size()[0] / 7 >= 169:
+        return 169
+    else:
+        return screen.get_size()[0] / 7
+    # return 169
 
+def get_card_height():
+    # from obj import screen
+    # return screen.get_size()[1] / 7
+    return 262
 
-def get_CARD_HEIGHT():
+def get_x_offset():
     from obj import screen
-    return int(screen.get_size()[1] / 7)
+    return (screen.get_size()[0]) / 7
 
-CARD_WIDTH, CARD_HEIGHT = get_CARD_WIDTH(), get_CARD_HEIGHT
+Y_OFFSET = 50
