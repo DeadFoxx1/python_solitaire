@@ -3,7 +3,7 @@ import pygame
 
 
 def game_init():
-    from obj import row, deck_main
+    from obj import row, deck_main, draw_deck
     #init pygame
     pygame.init()
 
@@ -16,23 +16,16 @@ def game_init():
             print(str(card.value) + str(card.suit) + str(card.is_face_up) + str(card.image))
         print("\n")
 
-    for card in deck_main.contents:
+    for card in draw_deck.contents:
         print(str(card.value) + str(card.suit) + str(card.is_face_up) + str(card.image))
 
-def display_row():
-    from setting import get_x_offset, Y_OFFSET
-    from obj import row, screen
+def display_cards():
+    from setting import get_x_offset, Y_OFFSET, SCREEN_HEIGHT
+    from obj import row, screen, draw_deck
     x = 0
-    y = 0
     for column in row:
-        y = 0
-        for card in column.contents:
-            screen.blit(card.image, (x, y))
-            y += Y_OFFSET
+        column.display_column(x, 0, 0, Y_OFFSET)
         x += get_x_offset()
+    draw_deck.display_column(0, SCREEN_HEIGHT)
 
-def display_draw_deck():
-    from setting import SCREEN_HEIGHT
-    from obj import draw_deck, screen
-    for card in draw_deck.contents:
-        screen.blit(card.image, (0, SCREEN_HEIGHT))
+

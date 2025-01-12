@@ -16,8 +16,7 @@ while True:
     obj.screen.fill(setting.BG_COLOR)
 
 
-    utill.display_row()
-    utill.display_draw_deck()
+    utill.display_cards()
 
 
     obj.clock.tick(setting.FPS)

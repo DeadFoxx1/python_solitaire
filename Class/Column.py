@@ -15,3 +15,10 @@ class Column:
             contents.append(deck.contents[card])
             deck.contents.pop(card)
         return contents
+
+    def display_column(self, x, y,x_offset: "optional" = 0, y_offset: "optional" = 0):
+        from obj import screen
+        for card in self.contents:
+            screen.blit(card.image, (x, y))
+            x += x_offset
+            y += y_offset
