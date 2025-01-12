@@ -1,8 +1,14 @@
+import setting
 from Deck import Deck
 from Column import Column
+import pygame
+
 
 #create deck
 deck_main = Deck()
+
+clock = pygame.time.Clock()
+screen = pygame.display.set_mode((setting.width, setting.height))
 
 #create 7 rows with asending amts of cards 1-7 (ex: 1-2-3-4-5-6-7). also only the last card is face up
 row = []

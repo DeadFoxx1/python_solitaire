@@ -1,9 +1,8 @@
-import game_objs
+#contaiins utilities used in game
+import setting
+import obj
 import pygame
-import settings
 
-clock = pygame.time.Clock()
-screen = pygame.display.set_mode((settings.width, settings.height))
 
 def game_init():
 
@@ -14,10 +13,10 @@ def game_init():
     pygame.display.set_caption("Pygame Template")
 
     #debug: print atributes of each card in each columns 
-    for column in game_objs.row:
+    for column in obj.row:
         print("\n")
         for card in column.contents:
             print(str(card.value) + str(card.suit) + str(card.is_face_up))
 
-    for card in game_objs.deck_main.contents:
+    for card in obj.deck_main.contents:
         print(str(card.value) + str(card.suit) + str(card.is_face_up))

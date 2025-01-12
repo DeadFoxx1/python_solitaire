@@ -1,7 +1,8 @@
 import utill
+import setting
+import obj
 import pygame
 import sys
-import settings
 
 #game init
 utill.game_init()
@@ -17,4 +18,4 @@ while True:
     pygame.display.flip()
 
     # control frame rate
-    utill.clock.tick(settings.FPS)
+    obj.clock.tick(setting.FPS)
