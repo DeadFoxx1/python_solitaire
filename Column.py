@@ -13,4 +13,5 @@ class Column:
         contents = []
         for card in range(self.num_of_cards):
             contents.append(deck.contents[card])
+            deck.contents.pop(card)
         return contents
