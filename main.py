@@ -13,14 +13,12 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-
     obj.screen.fill(setting.BG_COLOR)
 
+
     utill.display_row()
+    utill.display_draw_deck()
 
-    # update display
-    pygame.display.flip()
-    
-    # control frame rate
+
     obj.clock.tick(setting.FPS)
-
+    pygame.display.flip()

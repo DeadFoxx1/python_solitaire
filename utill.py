@@ -30,3 +30,9 @@ def display_row():
             screen.blit(card.image, (x, y))
             y += Y_OFFSET
         x += get_x_offset()
+
+def display_draw_deck():
+    from setting import SCREEN_HEIGHT
+    from obj import draw_deck, screen
+    for card in draw_deck.contents:
+        screen.blit(card.image, (0, SCREEN_HEIGHT))

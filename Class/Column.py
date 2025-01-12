@@ -11,7 +11,7 @@ class Column:
         
     def create_column(self, deck):
         contents = []
-        for card in range(self.num_of_cards):
+        for card in range(self.num_of_cards, -1, -1):
             contents.append(deck.contents[card])
             deck.contents.pop(card)
         return contents
