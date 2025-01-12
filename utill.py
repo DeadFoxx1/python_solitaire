@@ -19,13 +19,16 @@ def game_init():
     for card in draw_deck.contents:
         print(str(card.value) + str(card.suit) + str(card.is_face_up) + str(card.image))
 
-def display_cards():
+def display_top_row():
     from setting import get_x_offset, Y_OFFSET, SCREEN_HEIGHT
     from obj import row, screen, draw_deck
+
     x = 0
     for column in row:
         column.display_column(x, 0, 0, Y_OFFSET)
-        x += get_x_offset()
+        x += get_x_offset(7)
+
+def display_bottom_row():
+    from setting import SCREEN_HEIGHT
+    from obj import draw_deck
     draw_deck.display_column(0, SCREEN_HEIGHT)
-
-

@@ -16,7 +16,8 @@ while True:
     obj.screen.fill(setting.BG_COLOR)
 
 
-    utill.display_cards()
+    utill.display_top_row()
+    utill.display_bottom_row()
 
 
     obj.clock.tick(setting.FPS)

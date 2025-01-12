@@ -17,8 +17,8 @@ def get_card_height():
     # return screen.get_size()[1] / 7
     return 262
 
-def get_x_offset():
+def get_x_offset(denominator):
     from obj import screen
-    return (screen.get_size()[0]) / 7
+    return (screen.get_size()[0]) / denominator
 
 Y_OFFSET = 50
