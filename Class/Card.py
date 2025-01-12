@@ -14,7 +14,7 @@ class Card:
 
     @suit.setter
     def suit(self, suit):
-        if suit in ['h', 's', 'd', 'c']:
+        if suit in ['H', 'S', 'D', 'C']:
             self._suit = suit
         else:
             raise ValueError("Suit must be one of 'h', 's', 'd', or 'c'.")
@@ -25,7 +25,7 @@ class Card:
 
     @value.setter
     def value(self, value: int):
-        if value in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,"joker"]:
+        if value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, "joker"]:
             self._value = value
         else:
             raise ValueError("card must be between 1-13 or a joker")

@@ -19,3 +19,4 @@ while True:
 
     # control frame rate
     obj.clock.tick(setting.FPS)
+

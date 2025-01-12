@@ -9,9 +9,8 @@ class Deck:
 
     def create_deck(self):
         deck = []
-        suits = ["h", "s", "c", "d"]
-        for suit in suits:
-            for value in range(13):
+        for suit in ["H", "S", "C", "D"]:
+            for value in range(1, 14):
                 deck.append(Card(suit, value, False))
         random.shuffle(deck)
         return deck
