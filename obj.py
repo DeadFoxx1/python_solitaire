@@ -1,6 +1,6 @@
 import setting
-from Deck import Deck
-from Column import Column
+from Class.Deck import Deck
+from Class.Column import Column
 import pygame
 
 
