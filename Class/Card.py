@@ -1,4 +1,6 @@
 import os
+import pygame
+import setting
 
 class Card:
 
@@ -46,6 +48,8 @@ class Card:
     @property
     def image(self):
         if self.is_face_up == False:
-            return os.path.join(os.path.dirname(__file__), '..', f'red_back_blank.png')
+            image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/red_back_blank.png'))
+            return pygame.transform.scale(image, (setting.get_CARD_WIDTH(), setting.get_CARD_HEIGHT()))
         else:
-            return os.path.join(os.path.dirname(__file__), '..', f'assets/{self._value}{self._suit}.png')
+            image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self._value}{self._suit}.png'))
+            return pygame.transform.scale(image, (setting.get_CARD_WIDTH(), setting.get_CARD_HEIGHT()))

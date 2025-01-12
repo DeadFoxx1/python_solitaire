@@ -19,3 +19,13 @@ def game_init():
 
     for card in obj.deck_main.contents:
         print(str(card.value) + str(card.suit) + str(card.is_face_up) + str(card.image))
+
+def display_row():
+    x = 0
+    y = 0
+    for column in obj.row:
+        y = 0
+        for card in column.contents:
+            obj.screen.blit(card.image, (x, y))
+            y += (obj.screen.get_size()[1]) / 7
+        x += (obj.screen.get_size()[0]) / 7

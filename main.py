@@ -16,9 +16,11 @@ while True:
 
     obj.screen.fill(setting.BG_COLOR)
 
+    utill.display_row()
+
     # update display
     pygame.display.flip()
-
+    
     # control frame rate
     obj.clock.tick(setting.FPS)
 
