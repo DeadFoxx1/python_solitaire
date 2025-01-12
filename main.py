@@ -1,8 +1,8 @@
-import utill
-import setting
-import obj
 import pygame
 import sys
+import setting
+import obj
+import utill
 
 #game init
 utill.game_init()
@@ -13,6 +13,8 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+
+    obj.screen.fill(setting.BG_COLOR)
 
     # update display
     pygame.display.flip()

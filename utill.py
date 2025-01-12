@@ -1,5 +1,4 @@
 #contaiins utilities used in game
-import setting
 import obj
 import pygame
 
@@ -14,9 +13,9 @@ def game_init():
 
     #debug: print atributes of each card in each columns 
     for column in obj.row:
-        print("\n")
         for card in column.contents:
-            print(str(card.value) + str(card.suit) + str(card.is_face_up))
+            print(str(card.value) + str(card.suit) + str(card.is_face_up) + str(card.image))
+        print("\n")
 
     for card in obj.deck_main.contents:
-        print(str(card.value) + str(card.suit) + str(card.is_face_up))
+        print(str(card.value) + str(card.suit) + str(card.is_face_up) + str(card.image))

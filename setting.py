@@ -1,7 +1,5 @@
-#contains settings for the game
+SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
 
-#screen prop
-width, height = 800, 600
-
-#frame rate
 FPS = 60
+
+BG_COLOR = (48,255,33)

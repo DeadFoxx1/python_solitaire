@@ -1,3 +1,5 @@
+import os
+
 class Card:
 
     def __init__(self, suit: str, value: int, is_face_up: bool):
@@ -40,3 +42,10 @@ class Card:
             self._is_face_up = is_face_up
         else:
             raise ValueError("must be a boolean")
+
+    @property
+    def image(self):
+        if self.is_face_up == False:
+            return os.path.join(os.path.dirname(__file__), '..', f'red_back_blank.png')
+        else:
+            return os.path.join(os.path.dirname(__file__), '..', f'assets/{self._value}{self._suit}.png')
