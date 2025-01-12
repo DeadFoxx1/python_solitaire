@@ -22,3 +22,5 @@ def get_x_offset(denominator):
     return (screen.get_size()[0]) / denominator
 
 Y_OFFSET = 50
+
+SUITS = ['H', 'S', 'D', 'C']

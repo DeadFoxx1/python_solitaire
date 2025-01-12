@@ -17,10 +17,11 @@ class Card:
 
     @suit.setter
     def suit(self, suit):
-        if suit in ['H', 'S', 'D', 'C']:
+        from setting import SUITS
+        if suit in SUITS:
             self._suit = suit
         else:
-            raise ValueError("Suit must be one of 'h', 's', 'd', or 'c'.")
+            raise ValueError("Suit must be one of ['H', 'S', 'D', 'C']")
 
     @property
     def value(self):

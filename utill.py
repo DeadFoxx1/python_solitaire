@@ -31,4 +31,8 @@ def display_top_row():
 def display_bottom_row():
     from setting import SCREEN_HEIGHT
     from obj import draw_deck
+
     draw_deck.display_column(0, SCREEN_HEIGHT)
+
+    
+        
