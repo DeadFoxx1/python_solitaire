@@ -1,9 +1,9 @@
 #contaiins utilities used in game
 import pygame
 
-
+#run at creation of Game but will not loop
 def game_init():
-    from obj import top_row, bottom_row, deck_main, draw_deck, foundation
+    from obj import top_row, bottom_row
     #init pygame
     pygame.init()
 
@@ -21,18 +21,20 @@ def game_init():
             print(str(card.value) + str(card.suit) + str(card.is_face_up) + str(card.image))
         print("\n")
 
+#iterate through the columns in the top row and add the necessary offset to each card and each column
 def display_top_row():
     from setting import get_x_offset, Y_OFFSET, SCREEN_HEIGHT
-    from obj import top_row, screen, draw_deck
+    from obj import top_row
 
     x = 0
     for column in top_row:
         column.display_column(x, 0, 0, Y_OFFSET)
         x += get_x_offset(7)
 
+#iterate through the columns in the bottom row and add the necessary offset to each (x)
 def display_bottom_row():
     from setting import SCREEN_HEIGHT, get_x_offset
-    from obj import draw_deck, bottom_row
+    from obj import bottom_row
 
     x = 0
     for column in bottom_row:

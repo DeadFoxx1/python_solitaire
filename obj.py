@@ -6,20 +6,23 @@ import pygame
 
 #create deck
 deck_main = Deck()
+#create second deck with just foundation cards
 foundation = Deck(True)
 
+#create necessary pygame objects for screen and fps controll
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((setting.SCREEN_WIDTH, setting.SCREEN_HEIGHT), pygame.RESIZABLE)
 
-#create 7 rows with asending amts of cards 1-7 (ex: 1-2-3-4-5-6-7). also only the last card is face up
-top_row = []
-for ammount in range(7):
-    top_row.append(Column(ammount, deck_main))
-    top_row[ammount].contents[-1].is_face_up = True
+#create 7 rows with asending amts of cards 1-7 (ex: 1-2-3-4-5-6-7). face last card up
+top_row = [Column(ammount, deck_main) for ammount in range(7)]
+#loop to face last card in each column up
+for column in top_row:
+    column.contents[-1].is_face_up = True
 
-bottom_row = []
-draw_deck = Column(23, deck_main)
-draw_deck.contents[-1].is_face_up = True
-bottom_row.append(draw_deck)
-for ammount in range(4):
-    bottom_row.append(Column(0, foundation))
+#create bottom row with draw deck (remainder of cards in deck_main) and foundations
+bottom_row = [Column(23, deck_main)]
+#turn last card in draw deck face up
+bottom_row[0].contents[-1].is_face_up = True
+#add the foundations
+bottom_row.extend(Column(0, foundation) for _ in range(4))
+

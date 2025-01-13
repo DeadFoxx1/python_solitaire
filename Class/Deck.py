@@ -11,10 +11,13 @@ class Deck:
     def create_deck(self):
         from setting import SUITS
         deck = []
+        #create a list of card objects 
         if self.foundation:
+            #create list of foundation cards. one for each suit in setting.SUIT
             for suit in SUITS:
                 deck.append(Card(suit, 0, True, True))
         else:
+            #create a list of card objects valued 1-13. one for each suit in setting.SUIT
             for suit in SUITS:
                 for value in range(1, 14):
                     deck.append(Card(suit, value, False, False))
