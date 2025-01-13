@@ -3,13 +3,15 @@ import pygame
 
 class Card:
 
-    def __init__(self, suit: str, value: int, is_face_up: bool):
+    def __init__(self, suit: str, value: int, is_face_up: bool, foundation: "optional" = False):
         self._suit = None
         self._value = None
         self._is_face_up = None
+        self.foundation = foundation
         self.suit = suit
         self.value = value
         self.is_face_up = is_face_up
+        
     
     @property
     def suit(self):
@@ -29,10 +31,12 @@ class Card:
 
     @value.setter
     def value(self, value: int):
-        if value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, "joker"]:
+        if value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]:
             self._value = value
+        elif self.foundation:
+            self._value = 0
         else:
-            raise ValueError("card must be between 1-13 or a joker")
+            raise ValueError("card must be between 1-13")
 
     @property
     def is_face_up(self):
@@ -48,7 +52,10 @@ class Card:
     @property
     def image(self):
         from setting import get_card_height, get_card_width
-        if self.is_face_up == False:
+        if self.foundation:
+            image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self._suit}_empty.png'))
+            return pygame.transform.scale(image, (get_card_width(), get_card_height()))
+        elif self._is_face_up == False:
             image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/red_back_blank.png'))
             return pygame.transform.scale(image, (get_card_width(),get_card_height()))
         else:
