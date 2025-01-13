@@ -3,12 +3,11 @@ import pygame
 
 class Card:
 
-    def __init__(self, suit: "str: must be a suit as defined in setting.SUITS", value: "int: must be either 1-13 or Str: joker", is_face_up: bool, foundation: "optional" = False):
+    def __init__(self, suit: "str: must be a suit as defined in setting.SUITS", value: "int: must be either 0-13 or Str: joker. If 0, will be a foundation", is_face_up: bool):
         #NOTE: all vars with "_" are not ment to be used outside of class but because python does not allow for private vars, is notated with an _. look up "getter and setter oop" to learn more
         self.__suit = suit
         self.__value = value
         self.__is_face_up = is_face_up
-        self.foundation = foundation
         
     #getter: gets stored value
     @property
@@ -30,13 +29,11 @@ class Card:
         return self.__value
 
     @value.setter
-    def value(self, value: int):
-        if value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]:
+    def value(self, value):
+        if value in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]:
             self.__value = value
-        elif self.foundation:
-            self.__value = 0
         else:
-            raise ValueError("card must be between 1-13")
+            raise ValueError("Must be either 0-13 or Str: joker. If 0, will be a foundation")
 
     @property
     def is_face_up(self):
@@ -52,7 +49,7 @@ class Card:
     @property
     def image(self):
         from setting import get_card_height, get_card_width
-        if self.foundation:
+        if self.value == 0:
             image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self.__suit}_empty.png'))
             return pygame.transform.scale(image, (get_card_width(), get_card_height()))
         elif self.__is_face_up == False:

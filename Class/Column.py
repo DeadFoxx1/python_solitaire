@@ -2,7 +2,7 @@ from Class.Deck import Deck
 
 class Column:
 
-    def __init__(self, num_of_cards: int, deck: "Deck object"):
+    def __init__(self, num_of_cards: "int: pass one less then intended amount" , deck: "Deck object"):
         if not isinstance(deck, Deck):
             raise ValueError("Must pass in Deck object")
         

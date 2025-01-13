@@ -3,7 +3,7 @@ import random
 
 class Deck:
 
-    def __init__(self, foundation: "optional" = False):
+    def __init__(self, foundation: "Optional, bool: if true, will create a deck with only foundation cards" = False):
         self.foundation = foundation
         self.contents = self.create_deck()
         
@@ -15,11 +15,11 @@ class Deck:
         if self.foundation:
             #create list of foundation cards. one for each suit in setting.SUIT
             for suit in SUITS:
-                deck.append(Card(suit, 0, True, True))
+                deck.append(Card(suit, 0, True))
         else:
             #create a list of card objects valued 1-13. one for each suit in setting.SUIT
             for suit in SUITS:
                 for value in range(1, 14):
-                    deck.append(Card(suit, value, False, False))
+                    deck.append(Card(suit, value, False))
             random.shuffle(deck)
         return deck
