@@ -6,16 +6,22 @@ class Column:
         if not isinstance(deck, Deck):
             raise ValueError("Must pass in Deck object")
         
-        self.num_of_cards = num_of_cards
-        self.contents = self.create_column(deck)
-        
-    #takes however many cards specified in num_of_cards from the passed in Deck and removes it from the Deck
-    def create_column(self, deck):
-        contents = []
-        for card in range(self.num_of_cards, -1, -1):
-            contents.append(deck.contents[card])
-            deck.contents.pop(card)
-        return contents
+        self.__num_of_cards = num_of_cards
+        #takes however many cards specified in num_of_cards from the passed in Deck and removes it from the Deck
+        self.contents = [deck.contents.pop(card) for card in range(self.__num_of_cards, -1, -1)]
+    
+    #getter
+    @property
+    def num_of_cards(self):
+        return self.__num_of_cards
+
+    #setter
+    @num_of_cards.setter
+    def num_of_cards(self, num_of_cards, deck):
+        if num_of_cards <= len(deck.contents) - 1:
+            self.__num_of_cards = num_of_cards
+        else:
+            raise IndexError(f"deck {deck} does not have enough cards ({num_of_cards}) to create column")
 
     #iterate through the different cards in the column and displays them on screen with the passed in cords and offset
     def display_column(self, x, y, x_offset: "Optional, int: adds this value to x after every card" = 0, y_offset: "Optional, int: adds this value to y after every card" = 0):

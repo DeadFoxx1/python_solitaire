@@ -4,7 +4,6 @@ import pygame
 class Card:
 
     def __init__(self, suit: "str: must be a suit as defined in setting.SUITS", value: "int: must be either 0-13 or Str: joker. If 0, will be a foundation", is_face_up: bool):
-        #NOTE: all vars with "_" are not ment to be used outside of class but because python does not allow for private vars, is notated with an _. look up "getter and setter oop" to learn more
         self.__suit = suit
         self.__value = value
         self.__is_face_up = is_face_up
@@ -28,12 +27,13 @@ class Card:
     def value(self):
         return self.__value
 
+    #check if given value is valid and gives an error if not. If it is, define the card's value as passed in. 0 is for foundation
     @value.setter
     def value(self, value):
         if value in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]:
             self.__value = value
         else:
-            raise ValueError("Must be either 0-13 or Str: joker. If 0, will be a foundation")
+            raise ValueError("Must be either 0-13. If 0, will be a foundation")
 
     @property
     def is_face_up(self):

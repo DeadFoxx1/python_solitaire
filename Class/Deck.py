@@ -5,10 +5,10 @@ class Deck:
 
     def __init__(self, foundation: "Optional, bool: if true, will create a deck with only foundation cards" = False):
         self.foundation = foundation
-        self.contents = self.create_deck()
+        self.contents = self.__create_deck()
         
 
-    def create_deck(self):
+    def __create_deck(self):
         from setting import SUITS
         deck = []
         #create a list of card objects 

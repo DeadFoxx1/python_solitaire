@@ -15,6 +15,9 @@ while True:
             pygame.quit()
             sys.exit()
 
+
+
+
     #add green background
     obj.screen.fill(setting.BG_COLOR)
 
