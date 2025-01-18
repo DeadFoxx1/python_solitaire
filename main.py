@@ -25,9 +25,7 @@ while True:
     obj.screen.fill(setting.BG_COLOR)
 
     #display cards
-    utill.display_top_row()
-    utill.display_bottom_row()
-
+    utill.display_rows()
 
     #fps controll and screen refresh MUST BE RUN LAST SO DRAWN FRAMES CAN UPDATE
     obj.clock.tick(setting.FPS)

@@ -9,6 +9,9 @@ class Card:
         self.is_face_up = is_face_up
         self.load_image()
         
+    def __str__(self):
+        return f"{self.value}{self.suit}{self.is_face_up}{self.image}"
+
     @property
     def suit(self):
         return self.__suit
