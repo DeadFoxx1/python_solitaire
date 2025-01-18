@@ -52,3 +52,13 @@ def select_card(pos: "event.pos"):
             if card.rect.collidepoint(pos):
                 print(f"card {card.value}{card.suit} selected!")
                 break
+
+def update_card():
+    from obj import top_row, bottom_row
+    for column in top_row:
+        for card in column.contents:
+            card.load_image()
+
+    for column in bottom_row:
+        for card in column.contents:
+            card.load_image()

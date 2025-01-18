@@ -14,8 +14,10 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        elif event.type == pygame.MOUSEBUTTONDOWN:
             utill.select_card(event.pos)
+        elif event.type == pygame.VIDEORESIZE:
+            utill.update_card()
 
 
 
