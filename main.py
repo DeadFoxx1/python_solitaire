@@ -19,8 +19,6 @@ while True:
         elif event.type == pygame.VIDEORESIZE:
             utill.update_card()
 
-
-
     #add green background
     obj.screen.fill(setting.BG_COLOR)
 

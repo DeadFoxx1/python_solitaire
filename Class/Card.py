@@ -2,7 +2,6 @@ import os
 import pygame
 
 class Card:
-
     def __init__(self, suit: "str: must be a suit as defined in setting.SUITS", value: "int: must be either 0-13 or Str: joker. If 0, will be a foundation", is_face_up: bool):
         self.suit = suit
         self.value = value

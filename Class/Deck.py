@@ -2,12 +2,10 @@ from Class.Card import Card
 import random
 
 class Deck:
-
     def __init__(self, foundation: "Optional, bool: if true, will create a deck with only foundation cards" = False):
         self.foundation = foundation
         self.__create_deck()
         
-
     def __create_deck(self):
         from setting import SUITS
         deck = []

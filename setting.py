@@ -4,6 +4,7 @@ BG_COLOR = (48,255,33)
 
 SCREEN_WIDTH, SCREEN_HEIGHT = (500, 800)
 
+#how far down the cards should offset from each other in the collumn
 Y_OFFSET = 50
 #NOTE x_offset is not included because it is calculated differently
 
@@ -29,4 +30,3 @@ def get_x_offset(denominator):
     from obj import screen
     return (screen.get_size()[0]) / denominator
 
-#how far down the cards should offset from each other in the collumn

@@ -1,4 +1,3 @@
-#contaiins utilities used in game
 import pygame
 
 #run at creation of Game but will not loop
@@ -10,7 +9,7 @@ def game_init():
     #pygame caption
     pygame.display.set_caption("Pygame Template")
 
-    #debug: print atributes of each card in each columns 
+    #debug: print atributes of each card in each column 
     for column in top_row.contents:
         for card in column.contents:
             print(card)

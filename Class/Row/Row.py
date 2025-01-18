@@ -1,15 +1,13 @@
 from Class.Column import Column
+from Class.Deck import Deck
 
 class Row:
-    def __init__(self, deck, num_of_columns):
+    def __init__(self, deck: "deck object", num_of_columns):
+        if not isinstance(deck, Deck):
+            raise ValueError("Must pass in Deck object")
         self.deck = deck
         self.num_of_columns = num_of_columns
-        self.contents = []
         self.set_contents()
-
-    def set_contents(self):
-        #will be overridden in subclasses
-        raise NotImplementedError("Subclasses should implement this method.")
 
     def select_card(self, pos):
         for column in self.contents:
@@ -24,8 +22,8 @@ class Row:
                 card.load_image()
 
     def display(self):
-        from setting import get_x_offset
-        x = 0
-        for column in self.contents:
-            column.display_column(x, 0)  # Default y position can be overridden
-            x += get_x_offset(self.num_of_columns)
+        raise NotImplementedError("Subclasses should implement this method.")
+
+    def set_contents(self):
+        #will be overridden in subclasses
+        raise NotImplementedError("Subclasses should implement this method.")
