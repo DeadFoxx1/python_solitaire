@@ -41,5 +41,10 @@ def display_bottom_row():
         column.display_column(x, SCREEN_HEIGHT)
         x += get_x_offset(5)
 
-    
-        
+def select_card(pos: "event.pos"):
+    from obj import top_row
+    for column in top_row:
+        for card in reversed(column.contents):
+            if card.rect.collidepoint(pos):
+                print(f"card {card.value}{card.suit} selected!")
+                break

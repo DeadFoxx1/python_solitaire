@@ -1,13 +1,18 @@
 import os
 import pygame
+from setting import SUITS
 
 class Card:
 
     def __init__(self, suit: "str: must be a suit as defined in setting.SUITS", value: "int: must be either 0-13 or Str: joker. If 0, will be a foundation", is_face_up: bool):
-        self.__suit = suit
-        self.__value = value
-        self.__is_face_up = is_face_up
+        self.suit = suit
+        self.value = value
+        self.is_face_up = is_face_up
+        self.__rect = None
+        self.__image = None
+        self.load_image()
         
+
     #getter: gets stored value
     @property
     def suit(self):
@@ -17,7 +22,6 @@ class Card:
     @suit.setter
     #check if given suit is valid as defined in setting.SUITS and gives an error if not. If it is, define the card's suit as passed in
     def suit(self, suit):
-        from setting import SUITS
         if suit in SUITS:
             self.__suit = suit
         else:
@@ -43,18 +47,29 @@ class Card:
     def is_face_up(self, is_face_up):
         if isinstance(is_face_up, bool):
             self.__is_face_up = is_face_up
+            self.load_image()
         else:
             raise ValueError("must be a boolean")
 
-    @property
-    def image(self):
+    def load_image(self):
         from setting import get_card_height, get_card_width
         if self.value == 0:
             image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self.__suit}_empty.png'))
-            return pygame.transform.scale(image, (get_card_width(), get_card_height()))
         elif self.__is_face_up == False:
             image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/red_back_blank.png'))
-            return pygame.transform.scale(image, (get_card_width(),get_card_height()))
         else:
             image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self.__value}{self.__suit}.png'))
-            return pygame.transform.scale(image, (get_card_width(),get_card_height()))
+
+        self.__image = pygame.transform.scale(image, (get_card_width(), get_card_height()))
+
+    @property
+    def image(self):
+        return self.__image
+
+    @property
+    def rect(self):
+        return self.__rect
+
+    @rect.setter
+    def rect(self, cord: tuple):
+        self.__rect = self.image.get_rect(topleft=cord)

@@ -14,7 +14,8 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            utill.select_card(event.pos)
 
 
 
@@ -24,8 +25,6 @@ while True:
     #display cards
     utill.display_top_row()
     utill.display_bottom_row()
-
-
 
 
     #fps controll and screen refresh MUST BE RUN LAST SO DRAWN FRAMES CAN UPDATE

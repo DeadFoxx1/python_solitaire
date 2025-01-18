@@ -28,5 +28,6 @@ class Column:
         from obj import screen
         for card in self.contents:
             screen.blit(card.image, (x, y))
+            card.rect = (x, y)
             x += x_offset
             y += y_offset
