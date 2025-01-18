@@ -5,7 +5,7 @@ class Deck:
 
     def __init__(self, foundation: "Optional, bool: if true, will create a deck with only foundation cards" = False):
         self.foundation = foundation
-        self.contents = self.__create_deck()
+        self.__create_deck()
         
 
     def __create_deck(self):
@@ -22,4 +22,4 @@ class Deck:
                 for value in range(1, 14):
                     deck.append(Card(suit, value, False))
             random.shuffle(deck)
-        return deck
+        self.contents = deck

@@ -1,6 +1,5 @@
 import os
 import pygame
-from setting import SUITS
 
 class Card:
 
@@ -8,20 +7,16 @@ class Card:
         self.suit = suit
         self.value = value
         self.is_face_up = is_face_up
-        self.__rect = None
-        self.__image = None
         self.load_image()
         
-
-    #getter: gets stored value
     @property
     def suit(self):
         return self.__suit
 
-    #setter
     @suit.setter
     #check if given suit is valid as defined in setting.SUITS and gives an error if not. If it is, define the card's suit as passed in
     def suit(self, suit):
+        from setting import SUITS
         if suit in SUITS:
             self.__suit = suit
         else:

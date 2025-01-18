@@ -4,6 +4,11 @@ BG_COLOR = (48,255,33)
 
 SCREEN_WIDTH, SCREEN_HEIGHT = (500, 800)
 
+Y_OFFSET = 50
+#NOTE x_offset is not included because it is calculated differently
+
+SUITS = ['H', 'S', 'D', 'C']
+
 #calculate what the width of the card should be depending on the width of the screen. used to prevent distortion
 def get_card_width():
     from obj import screen
@@ -25,6 +30,3 @@ def get_x_offset(denominator):
     return (screen.get_size()[0]) / denominator
 
 #how far down the cards should offset from each other in the collumn
-Y_OFFSET = 50
-
-SUITS = ['H', 'S', 'D', 'C']

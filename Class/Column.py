@@ -5,19 +5,16 @@ class Column:
     def __init__(self, num_of_cards: "int: pass one less then intended amount" , deck: "Deck object"):
         if not isinstance(deck, Deck):
             raise ValueError("Must pass in Deck object")
-        
-        self.__num_of_cards = num_of_cards
+
+        self.__set_num_of_cards(num_of_cards, deck)
         #takes however many cards specified in num_of_cards from the passed in Deck and removes it from the Deck
-        self.contents = [deck.contents.pop(card) for card in range(self.__num_of_cards, -1, -1)]
+        self.contents = [deck.contents.pop(card) for card in range(self.num_of_cards, -1, -1)]
     
-    #getter
     @property
     def num_of_cards(self):
         return self.__num_of_cards
 
-    #setter
-    @num_of_cards.setter
-    def num_of_cards(self, num_of_cards, deck):
+    def __set_num_of_cards(self, num_of_cards, deck):
         if num_of_cards <= len(deck.contents) - 1:
             self.__num_of_cards = num_of_cards
         else:
