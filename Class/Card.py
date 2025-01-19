@@ -60,5 +60,21 @@ class Card:
         self.yellow_highlight.fill((255, 255, 0))
         self.yellow_highlight.set_alpha(0)
         self.rect = self.image.get_rect()
-    
 
+    @property
+    def is_selected(self):
+        return self.__is_selected
+    
+    @is_selected.setter
+    def is_selected(self, bool):
+        if bool:
+            self.yellow_highlight.set_alpha(128)
+        else:
+            self.yellow_highlight.set_alpha(0)
+        self.__is_selected = bool
+
+    def display(self, x, y):
+        from obj import screen
+        screen.blit(self.image, (x, y))
+        screen.blit(self.yellow_highlight, (x, y))
+        self.rect.topleft = (x, y)
