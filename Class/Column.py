@@ -9,6 +9,7 @@ class Column:
         self.num_of_cards = num_of_cards
         #takes however many cards specified in num_of_cards from the passed in Deck and removes it from the Deck
         self.set_contents()
+        self.is_selected = False
     
     def set_contents(self):
         self.contents = [self.deck.contents.pop(card) for card in range(self.num_of_cards, -1, -1)]
@@ -17,6 +18,16 @@ class Column:
     @property
     def num_of_cards(self):
         return self.__num_of_cards
+
+    @property
+    def is_selected(self):
+        return self.__is_selected
+    
+    @is_selected.setter
+    def is_selected(self, bool):
+        if bool:
+            print(f"y {len(self.contents)}")
+        self.__is_selected = bool
 
     @num_of_cards.setter
     def num_of_cards(self, num_of_cards):

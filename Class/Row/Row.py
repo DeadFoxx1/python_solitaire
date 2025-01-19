@@ -11,12 +11,14 @@ class Row:
 
     def select_card(self, pos):
         for column in self.contents:
+            column.is_selected = False
             for card in column.contents:
                 card.is_selected = False
             for card in reversed(column.contents):
                 if card.rect.collidepoint(pos):
                     card.is_selected = True
-                    print(f"card {card.value}{card.suit} selected! {card.is_selected}")
+                    column.is_selected = True
+                    print(f"card {card.value}{card.suit} selected! {card.is_selected} {column.is_selected}")
                     break
     def update_card(self):
         for column in self.contents:
