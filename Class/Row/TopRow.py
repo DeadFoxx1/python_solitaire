@@ -13,3 +13,4 @@ class TopRow(Row):
         for column in self.contents:
             column.display_column(x, 0, 0, Y_OFFSET)
             x += get_x_offset(self.num_of_columns)
+            

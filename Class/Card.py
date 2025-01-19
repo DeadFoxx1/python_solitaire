@@ -6,6 +6,7 @@ class Card:
         self.suit = suit
         self.value = value
         self.is_face_up = is_face_up
+        self.is_selected = False
         self.load_image()
         
     def __str__(self):
@@ -48,6 +49,10 @@ class Card:
         else:
             raise ValueError("must be a boolean")
 
+    @property
+    def image(self):
+        return self.__image
+
     def load_image(self):
         from setting import get_card_height, get_card_width
         if self.value == 0:
@@ -58,10 +63,9 @@ class Card:
             image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self.__value}{self.__suit}.png'))
 
         self.__image = pygame.transform.scale(image, (get_card_width(), get_card_height()))
-
-    @property
-    def image(self):
-        return self.__image
+        self.yellow_highlight =  pygame.Surface(self.image.get_size())
+        self.yellow_highlight.fill((255, 255, 0))
+        self.yellow_highlight.set_alpha(0)
 
     @property
     def rect(self):
@@ -70,3 +74,5 @@ class Card:
     @rect.setter
     def rect(self, cord: tuple):
         self.__rect = self.image.get_rect(topleft=cord)
+    
+

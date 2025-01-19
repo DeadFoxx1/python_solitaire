@@ -25,7 +25,12 @@ class Column:
     def display_column(self, x, y, x_offset: "Optional, int: adds this value to x after every card" = 0, y_offset: "Optional, int: adds this value to y after every card" = 0):
         from obj import screen
         for card in self.contents:
+            if card.is_selected:
+                card.yellow_highlight.set_alpha(128)
+            else:
+                card.yellow_highlight.set_alpha(0)
             screen.blit(card.image, (x, y))
+            screen.blit(card.yellow_highlight, (x, y))
             card.rect = (x, y)
             x += x_offset
             y += y_offset
