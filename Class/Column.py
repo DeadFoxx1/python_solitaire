@@ -31,6 +31,6 @@ class Column:
                 card.yellow_highlight.set_alpha(0)
             screen.blit(card.image, (x, y))
             screen.blit(card.yellow_highlight, (x, y))
-            card.rect = (x, y)
+            card.rect.topleft = (x, y)
             x += x_offset
             y += y_offset

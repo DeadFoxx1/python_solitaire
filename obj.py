@@ -19,4 +19,4 @@ foundation = Deck(True)
 top_row = TopRow(deck_main, 7)
 
 #create bottom row with draw deck (remainder of cards in deck_main) and foundations
-bottom_row = BottomRow(deck_main, foundation, 5)
+bottom_row = BottomRow(deck_main, foundation, 7)
