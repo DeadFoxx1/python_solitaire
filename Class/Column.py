@@ -42,5 +42,4 @@ class Column:
 
     def move_card(self, card_index, column):
         for card in range(card_index, len(self.contents)):
-            self.contents[card_index].is_selected = False
             column.contents.append(self.contents.pop(card_index))

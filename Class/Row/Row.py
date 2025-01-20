@@ -28,9 +28,11 @@ class Row:
         self.card_cache = None
 
     def move_card(self, column: "destination"):
-        self.column_cache.move_card(self.column_cache.contents.index(self.card_cache), column)
-        if len(self.column_cache.contents) != 0:
-            self.column_cache.contents[-1].is_face_up = True
+        if self.card_cache.value == column.contents[-1].value - 1:
+            self.column_cache.move_card(self.column_cache.contents.index(self.card_cache), column)
+            if len(self.column_cache.contents) != 0:
+                self.column_cache.contents[-1].is_face_up = True
+        self.card_cache.is_selected = False
         self.column_cache = None
         self.card_cache = None
                
