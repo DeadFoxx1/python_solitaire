@@ -12,27 +12,24 @@ class Row:
         self.selected_card = None
 
     def select_card(self, pos):
-        for column in self.contents:
-            for card in column.contents:
-                card.is_selected = False
-
-        for column in self.contents:
-            for card in reversed(column.contents):
-                if card.rect.collidepoint(pos):
-                    if self.selected_column is None:
-                        self.selected_column = column
-                        card.is_selected = True
-                        self.selected_card = card
-                    else:
-                        self.selected_column.move_card(self.selected_column.contents.index(self.selected_card), column)
-                        if len(self.selected_column.contents) != 0:
-                            self.selected_column.contents[-1].is_face_up = True
-                        self.selected_column = None
-                        self.selected_card.is_selected = False
-                        self.selected_card = None
-                    print(f"card {card.value}{card.suit} selected! {card.is_selected}")
-                    break
-                    
+        for col in self.contents:
+            card = col.select_card(pos)
+            if card != None:
+                if self.selected_column is None:
+                    self.selected_column = col
+                    self.selected_card = col.contents.index(card)
+                    return 
+                else:
+                    self.selected_column.move_card(self.selected_card, col)
+                    if len(self.selected_column.contents) != 0:
+                        self.selected_column.contents[-1].is_face_up = True
+                    self.selected_column = None
+                    self.selected_card = None
+                    card.is_selected = False
+                    return
+        self.selected_column = None
+        self.selected_card = None
+               
     def update_card(self):
         for column in self.contents:
             if len(column.contents) != 0:

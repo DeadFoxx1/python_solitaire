@@ -31,6 +31,16 @@ class Column:
             x += x_offset
             y += y_offset
 
+    def select_card(self, pos):
+        for card in reversed(self.contents):
+            card.is_selected = False
+            if card.rect.collidepoint(pos):
+                card.is_selected = True
+                return card
+        return
+
+
     def move_card(self, card_index, column):
         for card in range(card_index, len(self.contents)):
+            self.contents[card_index].is_selected = False
             column.contents.append(self.contents.pop(card_index))
