@@ -78,3 +78,10 @@ class Card:
         screen.blit(self.image, (x, y))
         screen.blit(self.yellow_highlight, (x, y))
         self.rect.topleft = (x, y)
+
+    @property
+    def color(self):
+        if self.suit in ["H", "D"]:
+            return "red"
+        else:
+            return "black"

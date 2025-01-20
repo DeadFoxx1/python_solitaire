@@ -28,7 +28,7 @@ class Row:
         self.card_cache = None
 
     def move_card(self, column: "destination"):
-        if self.card_cache.value == column.contents[-1].value - 1:
+        if self.card_cache.value == column.contents[-1].value - 1 and self.card_cache.color != column.contents[-1].color:
             self.column_cache.move_card(self.column_cache.contents.index(self.card_cache), column)
             if len(self.column_cache.contents) != 0:
                 self.column_cache.contents[-1].is_face_up = True
