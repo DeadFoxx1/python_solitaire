@@ -8,27 +8,31 @@ class Row:
         self.deck = deck
         self.num_of_columns = num_of_columns
         self.set_contents()
-        self.selected_column = None
-        self.selected_card = None
+        self.column_cache = None
+        self.card_cache = None
 
     def select_card(self, pos):
-        for col in self.contents:
-            card = col.select_card(pos)
-            if card != None:
-                if self.selected_column is None:
-                    self.selected_column = col
-                    self.selected_card = col.contents.index(card)
-                    return 
-                else:
-                    self.selected_column.move_card(self.selected_card, col)
-                    if len(self.selected_column.contents) != 0:
-                        self.selected_column.contents[-1].is_face_up = True
-                    self.selected_column = None
-                    self.selected_card = None
-                    card.is_selected = False
-                    return
-        self.selected_column = None
-        self.selected_card = None
+        for column in self.contents:
+            selected_card = column.select_card(pos)
+            if selected_card is None:
+                continue
+            if self.column_cache is None:
+                self.column_cache = column
+                self.card_cache = selected_card
+                return 
+            else:
+                selected_card.is_selected = False
+                self.move_card(column)
+                return
+        self.column_cache = None
+        self.card_cache = None
+
+    def move_card(self, column: "destination"):
+        self.column_cache.move_card(self.column_cache.contents.index(self.card_cache), column)
+        if len(self.column_cache.contents) != 0:
+            self.column_cache.contents[-1].is_face_up = True
+        self.column_cache = None
+        self.card_cache = None
                
     def update_card(self):
         for column in self.contents:
