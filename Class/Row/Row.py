@@ -7,25 +7,20 @@ class Row:
             raise ValueError("Must pass in Deck object")
         self.deck = deck
         self.num_of_columns = num_of_columns
-        self.set_contents()
-        self.column_cache = None
-        self.card_cache = None
+        self.set_cache = None
+
+    def clear_select_cards(self):
+        for column in self.contents:
+            for card in column.contents:
+                card.is_selected = False
 
     def select_card(self, pos):
+        self.clear_select_cards()
         for column in self.contents:
             selected_card = column.select_card(pos)
-            if selected_card is None:
-                continue
-            if self.column_cache is None:
-                self.column_cache = column
-                self.card_cache = selected_card
-                return 
-            else:
-                selected_card.is_selected = False
-                self.move_card(column)
-                return
-        self.column_cache = None
-        self.card_cache = None
+            if selected_card != None:
+                return (column, selected_card)
+        return
 
     def move_card(self, column: "destination"):
         if self.card_cache.value == column.contents[-1].value - 1 and self.card_cache.color != column.contents[-1].color:
@@ -44,9 +39,8 @@ class Row:
                     card.is_selected = False
                     card.load_image()
 
-    def display(self):
-        raise NotImplementedError("Subclasses should implement this method.")
+    def __display(self):
+        raise NotImplementedError("overwritten in subclass.")
 
-    def set_contents(self):
-        #will be overridden in subclasses
-        raise NotImplementedError("Subclasses should implement this method.")
+    def __set_contents(self):
+        raise NotImplementedError("overwritten in subclass.")

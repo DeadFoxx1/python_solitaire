@@ -28,8 +28,17 @@ def display_rows():
 
 def select_card(pos: "event.pos"):
     from obj import top_row, bottom_row
-    top_row.select_card(pos)
-    bottom_row.select_card(pos)
+
+    top_row_selected_card = top_row.select_card(pos)
+    bottom_row_selected_card = bottom_row.select_card(pos)
+
+    if top_row.select_card(pos) != None:
+        print(top_row_selected_card[1])
+
+    elif bottom_row.select_card(pos) != None:
+        print(bottom_row_selected_card[1])
+    else:
+        print("none selected")
 
 def update_card():
     from obj import top_row, bottom_row

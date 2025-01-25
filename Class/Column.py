@@ -8,9 +8,9 @@ class Column:
         self.deck = deck
         self.num_of_cards = num_of_cards
         #takes however many cards specified in num_of_cards from the passed in Deck and removes it from the Deck
-        self.set_contents()
+        self.__set_contents()
     
-    def set_contents(self):
+    def __set_contents(self):
         self.contents = [self.deck.contents.pop(card) for card in range(self.num_of_cards, -1, -1)]
 
     @property
@@ -24,8 +24,8 @@ class Column:
         else:
             raise IndexError(f"deck {deck} does not have enough cards ({num_of_cards}) to create column")
 
-    #iterate through the different cards in the column and displays them on screen with the passed in cords and offset
     def display_column(self, x, y, x_offset: "Optional, int: adds this value to x after every card" = 0, y_offset: "Optional, int: adds this value to y after every card" = 0):
+        """iterate through the different cards in the column and displays them on screen with the passed in cords and offset"""
         for card in self.contents:
             card.display(x, y)
             x += x_offset
@@ -33,7 +33,6 @@ class Column:
 
     def select_card(self, pos):
         for card in reversed(self.contents):
-            card.is_selected = False
             if card.rect.collidepoint(pos):
                 card.is_selected = True
                 return card

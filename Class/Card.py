@@ -17,7 +17,6 @@ class Card:
         return self.__suit
 
     @suit.setter
-    #check if given suit is valid as defined in setting.SUITS and gives an error if not. If it is, define the card's suit as passed in
     def suit(self, suit: "Must be defined in settings"):
         from setting import SUITS
         if suit in SUITS:
@@ -29,7 +28,6 @@ class Card:
     def value(self):
         return self.__value
 
-    #check if given value is valid and gives an error if not. If it is, define the card's value as passed in. 0 is for foundation
     @value.setter
     def value(self, value):
         if value in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]:
@@ -46,7 +44,31 @@ class Card:
         self.__is_face_up = is_face_up
         self.load_image()
 
+    @property
+    def is_selected(self):
+        return self.__is_selected
+    
+    @is_selected.setter
+    def is_selected(self, bool):
+        if bool:
+            self.yellow_highlight.set_alpha(128)
+        else:
+            self.yellow_highlight.set_alpha(0)
+        self.__is_selected = bool
+
+    @property
+    def color(self):
+        if self.suit in ["H", "D"]:
+            return "red"
+        else:
+            return "black"
+
     def load_image(self):
+        """updates the card image based on the attributes of the card.
+        if face down show back of card
+        if face up show card based on suit and num
+        if value = 0, show foundation card
+        also updates card size, yellow hilight size, and rect onj size"""
         from setting import get_card_height, get_card_width
         if self.value == 0:
             image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self.suit}_empty.png'))
@@ -61,27 +83,9 @@ class Card:
         self.yellow_highlight.set_alpha(0)
         self.rect = self.image.get_rect()
 
-    @property
-    def is_selected(self):
-        return self.__is_selected
-    
-    @is_selected.setter
-    def is_selected(self, bool):
-        if bool:
-            self.yellow_highlight.set_alpha(128)
-        else:
-            self.yellow_highlight.set_alpha(0)
-        self.__is_selected = bool
-
     def display(self, x, y):
+        """displayes the card at given cords"""
         from obj import screen
         screen.blit(self.image, (x, y))
         screen.blit(self.yellow_highlight, (x, y))
         self.rect.topleft = (x, y)
-
-    @property
-    def color(self):
-        if self.suit in ["H", "D"]:
-            return "red"
-        else:
-            return "black"

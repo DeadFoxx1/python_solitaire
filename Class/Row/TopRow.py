@@ -2,7 +2,12 @@ from Class.Column import Column
 from Class.Row.Row import Row
 
 class TopRow(Row):
-    def set_contents(self):
+
+    def __init__(self, deck: "deck object", num_of_columns):
+        super().__init__(deck, num_of_columns)
+        self.__set_contents()
+
+    def __set_contents(self):
         self.contents = [Column(x, self.deck) for x in range(self.num_of_columns)]
 
     def display(self):

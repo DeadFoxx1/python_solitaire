@@ -2,11 +2,12 @@ from Class.Column import Column
 from Class.Row.Row import Row
 
 class BottomRow(Row):
-    def __init__(self, deck: "deck object", foundation: "foundation deck object", num_of_columns):
-        self.foundation = foundation
+    def __init__(self, deck: "deck object", num_of_columns, foundation: "foundation deck object"):
         super().__init__(deck, num_of_columns)
+        self.foundation = foundation
+        self.__set_contents()
 
-    def set_contents(self):
+    def __set_contents(self):
         self.contents = [Column(23, self.deck)]
         self.contents.extend(Column(0, self.foundation) for x in range(4))
 
