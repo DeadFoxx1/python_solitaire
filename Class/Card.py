@@ -10,7 +10,7 @@ class Card:
         self.is_selected = False
         
     def __str__(self):
-        return f"{self.value}{self.suit}{self.is_face_up}{self.image}"
+        return f"{self.value}{self.suit}{self.is_face_up}"
 
     @property
     def suit(self):

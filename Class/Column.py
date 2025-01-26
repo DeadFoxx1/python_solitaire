@@ -7,9 +7,8 @@ class Column:
 
         self.deck = deck
         self.num_of_cards = num_of_cards
-        #takes however many cards specified in num_of_cards from the passed in Deck and removes it from the Deck
         self.__set_contents()
-    
+    #takes however many cards specified in num_of_cards from the passed in Deck and removes it from the Deck    
     def __set_contents(self):
         self.contents = [self.deck.contents.pop(card) for card in range(self.num_of_cards, -1, -1)]
 

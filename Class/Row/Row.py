@@ -17,9 +17,8 @@ class Row:
     def select_card(self, pos):
         self.clear_select_cards()
         for column in self.contents:
-            selected_card = column.select_card(pos)
-            if selected_card != None:
-                return (column, selected_card)
+            if (result := column.select_card(pos)) != None:
+                return (column, result)
         return
 
     def update_card(self):
