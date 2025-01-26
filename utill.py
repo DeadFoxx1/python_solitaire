@@ -54,13 +54,23 @@ def select_card(pos: "event.pos"):
 def move_card(card_destination):
     global card_cache
     cards_to_move = card_cache[0].contents[card_cache[0].contents.index(card_cache[1]):]
+        #if the color is opposite and the destination is on more 
+        #OR if the destination is a foundation, the suit is the same, and the value is one more then in the foundation, 
+        #move
+    if (card_destination[0].contents[-1].color != card_cache[1].color and \
+        card_destination[0].contents[-1].value == card_cache[1].value + 1) or \
+        (card_destination[0].contents[0].value == 0 and \
+        card_destination[0].contents[-1].value == card_cache[1].value - 1 and \
+        card_destination[0].contents[-1].suit == card_cache[1].suit):
 
-    print(f"move {card_cache[1]} to {card_destination[1]}")
-    for card in cards_to_move:
-        card_cache[0].contents.remove(card)
-        card_destination[0].contents.append(card)
-    if len(card_cache[0].contents) != 0:
-        card_cache[0].contents[-1].is_face_up = True
+        print(f"move {card_cache[1]} to {card_destination[1]}")
+        for card in cards_to_move:
+            card_cache[0].contents.remove(card)
+            card_destination[0].contents.append(card)
+        if len(card_cache[0].contents) != 0:
+            card_cache[0].contents[-1].is_face_up = True
+    else:
+        print("invalid move")
     
 def update_card():
     from obj import top_row, bottom_row
