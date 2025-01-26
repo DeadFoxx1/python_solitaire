@@ -2,7 +2,7 @@ import pygame
 
 card_cache = None
 
-#run at creation of Game but will not loop
+#run at creation of game but will not loop
 def game_init():
     from obj import top_row, bottom_row
     #init pygame
@@ -11,7 +11,7 @@ def game_init():
     #pygame caption
     pygame.display.set_caption("Pygame Template")
 
-    #debug: print atributes of each card in each column 
+    #debug: print attributes of each card in each column 
     for column in top_row.contents:
         for card in column.contents:
             print(card)
@@ -22,7 +22,6 @@ def game_init():
             print(card)
         print("\n")
 
-#iterate through the columns in the bottom row and add the necessary offset to each (x)
 def display_rows():
     from obj import bottom_row, top_row
     bottom_row.display()

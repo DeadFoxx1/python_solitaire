@@ -9,7 +9,7 @@ utill.game_init()
 
 #main game loop
 while True:
-    #checks is the window closed and ends the program accordingly
+    #checks for events and acts acis accordingly
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -25,6 +25,6 @@ while True:
     #display cards
     utill.display_rows()
 
-    #fps controll and screen refresh MUST BE RUN LAST SO DRAWN FRAMES CAN UPDATE
+    #fps control and screen refresh MUST BE RUN LAST SO DRAWN FRAMES CAN UPDATE
     obj.clock.tick(setting.FPS)
     pygame.display.flip()

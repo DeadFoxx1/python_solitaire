@@ -68,7 +68,7 @@ class Card:
         if face down show back of card
         if face up show card based on suit and num
         if value = 0, show foundation card
-        also updates card size, yellow hilight size, and rect onj size"""
+        also updates card size, yellow highlight size, and rect onj size"""
         from setting import get_card_height, get_card_width
         if self.value == 0:
             image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self.suit}_empty.png'))
@@ -84,7 +84,7 @@ class Card:
         self.rect = self.image.get_rect()
 
     def display(self, x, y):
-        """displayes the card at given cords"""
+        """displays the card at given cords"""
         from obj import screen
         screen.blit(self.image, (x, y))
         screen.blit(self.yellow_highlight, (x, y))

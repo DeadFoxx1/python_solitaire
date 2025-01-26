@@ -4,7 +4,7 @@ BG_COLOR = (92,255,92)
 
 SCREEN_WIDTH, SCREEN_HEIGHT = (500, 800)
 
-#how far down the cards should offset from each other in the collumn
+#how far down the cards should offset from each other in the column
 Y_OFFSET = 50
 #NOTE x_offset is not included because it is calculated differently
 
