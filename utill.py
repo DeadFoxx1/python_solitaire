@@ -1,5 +1,7 @@
 import pygame
 
+card_cache = None
+
 #run at creation of Game but will not loop
 def game_init():
     from obj import top_row, bottom_row
@@ -32,14 +34,31 @@ def select_card(pos: "event.pos"):
     top_row_selected_card = top_row.select_card(pos)
     bottom_row_selected_card = bottom_row.select_card(pos)
 
-    if top_row.select_card(pos) != None:
-        print(top_row_selected_card[1])
-
-    elif bottom_row.select_card(pos) != None:
-        print(bottom_row_selected_card[1])
+    if (card_cache != None) and (top_row_selected_card or bottom_row_selected_card != None):
+        move_card(top_row_selected_card, bottom_row_selected_card)
     else:
+        cache_card(top_row_selected_card, bottom_row_selected_card)
+
+def cache_card(top_row_selected_card, bottom_row_selected_card): 
+    global card_cache  
+
+    if bottom_row_selected_card != None:
+        card_cache = bottom_row_selected_card
+        print(card_cache[1])
+
+    elif top_row_selected_card != None:
+        card_cache = top_row_selected_card
+        print(card_cache[1])
+
+    else:
+        card_cache = None
         print("none selected")
 
+def move_card(top_row_selected_card, bottom_row_selected_card):
+    global card_cache
+    print("move")
+    card_cache = None
+    
 def update_card():
     from obj import top_row, bottom_row
     top_row.update_card()
