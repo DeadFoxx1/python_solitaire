@@ -37,7 +37,11 @@ def select_card(pos: "event.pos"):
     global card_cache
     from obj import top_row, bottom_row
 
-    if (result := bottom_row.select_card(pos)) != None:
+    if (result := bottom_row.select_card(pos)) == "draw":
+        bottom_row.draw_card()
+        card_cache = None
+        return
+    elif result != None:
         selected_card = result
     elif (result := top_row.select_card(pos)) != None:
         selected_card = result

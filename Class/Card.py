@@ -17,9 +17,9 @@ class Card:
         return self.__suit
 
     @suit.setter
-    def suit(self, suit: "Must be defined in settings"):
+    def suit(self, suit: "Must be defined in settings or 0 for restart_deck"):
         from setting import SUITS
-        if suit in SUITS:
+        if suit in SUITS or suit == 0:
             self.__suit = suit
         else:
             raise ValueError("Suit Must be defined in settings")

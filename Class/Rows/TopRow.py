@@ -1,5 +1,5 @@
-from Class.Column import Column
-from Class.Row.Row import Row
+from Class.Columns.Column import Column
+from Class.Rows.Row import Row
 
 class TopRow(Row):
 
@@ -16,4 +16,12 @@ class TopRow(Row):
         for column in self.contents:
             column.display_column(x, 0, 0, Y_OFFSET)
             x += get_x_offset(self.num_of_columns)
+
+    def update_card(self):
+        for column in self.contents:
+            if len(column.contents) != 0:
+                column.contents[-1].is_face_up = True
+                for card in column.contents:
+                    card.is_selected = False
+                    card.load_image()
             

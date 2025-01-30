@@ -17,17 +17,14 @@ class Row:
     def select_card(self, pos):
         self.clear_select_cards()
         for column in self.contents:
-            if (result := column.select_card(pos)) != None:
+            if (result := column.select_card(pos)) == "draw":
+                return "draw"
+            elif result != None:
                 return (column, result)
         return
 
-    def update_card(self):
-        for column in self.contents:
-            if len(column.contents) != 0:
-                column.contents[-1].is_face_up = True
-                for card in column.contents:
-                    card.is_selected = False
-                    card.load_image()
+    def __update_card(self):
+        raise NotImplementedError("overwritten in subclass.")
 
     def __display(self):
         raise NotImplementedError("overwritten in subclass.")

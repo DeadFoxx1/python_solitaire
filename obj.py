@@ -1,9 +1,9 @@
 import pygame
 from setting import SCREEN_WIDTH, SCREEN_HEIGHT
 from Class.Deck import Deck
-from Class.Column import Column
-from Class.Row.TopRow import TopRow
-from Class.Row.BottomRow import BottomRow
+from Class.Columns.Column import Column
+from Class.Rows.TopRow import TopRow
+from Class.Rows.BottomRow import BottomRow
 
 #create necessary pygame objects for screen and fps control
 clock = pygame.time.Clock()
