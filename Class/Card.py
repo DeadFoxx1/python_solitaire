@@ -30,10 +30,10 @@ class Card:
 
     @value.setter
     def value(self, value):
-        if value in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]:
+        if value in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]:
             self.__value = value
         else:
-            raise ValueError("Must be either 0-13. If 0, will be a foundation")
+            raise ValueError("Must be either 0-14. If 0, will be a foundation, if 14, will be blank")
 
     @property
     def is_face_up(self):
@@ -58,7 +58,10 @@ class Card:
 
     @property
     def color(self):
-        if self.suit in ["H", "D"]:
+        
+        if self.suit == 0:
+            return 0
+        elif self.suit in ["H", "D"]:
             return "red"
         else:
             return "black"

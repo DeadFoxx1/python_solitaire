@@ -58,14 +58,17 @@ def select_card(pos: "event.pos"):
 def move_card(card_destination):
     global card_cache
     cards_to_move = card_cache[0].contents[card_cache[0].contents.index(card_cache[1]):]
+    destination_column = card_destination[0].contents
+
         #if the color is opposite and the destination is on more 
         #OR if the destination is a foundation, the suit is the same, and the value is one more then in the foundation, 
         #move
-    if (card_destination[0].contents[-1].color != card_cache[1].color and \
-        card_destination[0].contents[-1].value == card_cache[1].value + 1) or \
-        (card_destination[0].contents[0].value == 0 and \
-        card_destination[0].contents[-1].value == card_cache[1].value - 1 and \
-        card_destination[0].contents[-1].suit == card_cache[1].suit):
+    if  (destination_column[-1].is_face_up and card_cache[1].is_face_up) and \
+        (destination_column[-1].color != card_cache[1].color and \
+        destination_column[-1].value == card_cache[1].value + 1) or \
+        (destination_column[0].value == 0 and \
+        destination_column[-1].value == card_cache[1].value - 1 and \
+        destination_column[-1].suit == card_cache[1].suit):
 
         print(f"move {card_cache[1]} to {card_destination[1]}")
         for card in cards_to_move:

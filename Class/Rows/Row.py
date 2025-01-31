@@ -1,4 +1,4 @@
-from Class.Column import Column
+from Class.Columns.Column import Column
 from Class.Deck import Deck
 
 class Row:
