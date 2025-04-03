@@ -1,7 +1,8 @@
 # about:
-I started this project as soon as I learned about what a python class is.
-THIS MEANS ITS TRASH!!!
-Honestly don't know what I was doing with this lol
+I started this project as soon as I learned about what a python class is.  
+THIS MEANS ITS TRASH!!!  
+Honestly don't know what I was doing with this lol  
+Also this was before I had a GitHub account so thats why the commits are all wonky
 
 
 ## setup:
