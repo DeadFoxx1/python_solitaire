@@ -4,6 +4,7 @@ import setting
 import obj
 import utill
 
+
 # game init
 utill.game_init()
 
