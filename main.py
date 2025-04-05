@@ -4,9 +4,9 @@ import setting
 import obj
 import utill
 
-
 # game init
 utill.game_init()
+
 
 # main game loop
 while True:
