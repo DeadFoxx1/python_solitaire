@@ -1,4 +1,4 @@
-from Class.Columns.PlayingColumns import PlayingColumns
+from Class.Columns.PlayingColumn import PlayingColumn
 from Class.Rows.Row import Row
 
 
@@ -6,7 +6,7 @@ class TopRow(Row):
 
     def __init__(self, deck: "deck object", num_of_columns):
         super().__init__(num_of_columns)
-        self.contents = [PlayingColumns(x, deck) for x in range(self.num_of_columns)]
+        self.contents = [PlayingColumn(x, deck) for x in range(self.num_of_columns)]
 
     def display(self):
         from setting import get_x_offset, Y_OFFSET
