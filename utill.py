@@ -41,7 +41,7 @@ def clear_select_cards(selected_card):
     card_cache = None
 
 
-def select_card(pos: "event.pos"):
+def select_card(pos):
     global card_cache
     from obj import top_row, bottom_row
 
