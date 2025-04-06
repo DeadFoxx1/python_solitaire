@@ -13,6 +13,8 @@ def game_init():
     # pygame caption
     pygame.display.set_caption("Pygame Template")
 
+    update_card()
+
     # debug: print attributes of each card in each column
     for column in top_row.contents:
         for card in column.contents:
