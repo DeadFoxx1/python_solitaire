@@ -14,8 +14,8 @@ class Row:
     def select_card(self, pos):
         self.clear_select_cards()
         for column in self.contents:
-            if (result := column.select_card(pos)) == "draw":
+            if (selected_card := column.select_card(pos)) == "draw":
                 return "draw"
-            elif result != None:
-                return (column, result)
+            elif selected_card != None:
+                return (column, selected_card)
         return

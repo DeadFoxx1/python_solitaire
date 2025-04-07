@@ -47,7 +47,6 @@ def select_card(pos):
 
     if (result := bottom_row.select_card(pos)) == "draw":
         bottom_row.draw_card()
-        card_cache = None
         return
     elif result != None:
         selected_card = result
