@@ -6,9 +6,12 @@ class Column:
         self,
         num_of_cards: "int: pass one less then intended amount",
         deck: "Deck object",
+        can_accept_cards: "bool",
     ):
         if not isinstance(deck, Deck):
             raise ValueError("Must pass in Deck object")
+
+        self.can_accept_cards = can_accept_cards
 
         self.contents = [
             deck.contents.pop(card)

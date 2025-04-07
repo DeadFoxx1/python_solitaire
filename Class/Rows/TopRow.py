@@ -6,7 +6,9 @@ class TopRow(Row):
 
     def __init__(self, deck: "deck object", num_of_columns):
         super().__init__(num_of_columns)
-        self.contents = [PlayingColumn(x, deck) for x in range(self.num_of_columns)]
+        self.contents = [
+            PlayingColumn(x, deck, True) for x in range(self.num_of_columns)
+        ]
 
     def display(self):
         from setting import get_x_offset, Y_OFFSET
