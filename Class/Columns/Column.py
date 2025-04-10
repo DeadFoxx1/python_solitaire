@@ -1,5 +1,6 @@
 from Class.Deck import Deck
 
+
 class Column:
     def __init__(
         self,
@@ -7,15 +8,15 @@ class Column:
         deck: "Deck object",
         can_accept_cards: "bool",
     ):
-        if not isinstance(deck, Deck):
-            raise ValueError("Must pass in Deck object")
+        if isinstance(deck, Deck):
+            self.contents = [
+                deck.contents.pop(card)
+                for card in range(min(num_of_cards, len(deck.contents)), -1, -1)
+            ]
+        else:
+            self.contents = []
 
         self.can_accept_cards = can_accept_cards
-
-        self.contents = [
-            deck.contents.pop(card)
-            for card in range(min(num_of_cards, len(deck.contents)), -1, -1)
-        ]
 
     def display_column(
         self,
