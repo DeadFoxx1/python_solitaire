@@ -7,6 +7,7 @@ import utill
 # game init
 utill.game_init()
 
+
 # main game loop
 while True:
     # checks for events and acts acis accordingly
