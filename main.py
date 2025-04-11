@@ -1,15 +1,15 @@
-import pygame
 import sys
+import pygame
 import setting
 import obj
 import utill
 
-#game init
+# game init
 utill.game_init()
 
-#main game loop
+# main game loop
 while True:
-    #checks for events and acts acis accordingly
+    # checks for events and acts acis accordingly
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -19,12 +19,12 @@ while True:
         elif event.type == pygame.VIDEORESIZE:
             utill.update_card()
 
-    #add green background
+    # add green background
     obj.screen.fill(setting.BG_COLOR)
 
-    #display cards
+    # display cards
     utill.display_rows()
 
-    #fps control and screen refresh MUST BE RUN LAST SO DRAWN FRAMES CAN UPDATE
+    # fps control and screen refresh MUST BE RUN LAST SO DRAWN FRAMES CAN UPDATE
     obj.clock.tick(setting.FPS)
     pygame.display.flip()
