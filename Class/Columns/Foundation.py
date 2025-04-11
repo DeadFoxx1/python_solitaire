@@ -6,6 +6,6 @@ class Foundation(Column):
     def __init__(
         self,
         num_of_cards: "int: pass one less then intended amount",
-        deck: "Deck object",
+        deck: "list",
     ):
         super().__init__(num_of_cards, deck, False)
