@@ -2,7 +2,7 @@ from Class.Columns.Column import Column
 from Class.Card import Card
 
 
-class PlayingColumns(Column):
+class PlayingColumn(Column):
     def __init__(
         self,
         num_of_cards: "int: pass one less then intended amount",
