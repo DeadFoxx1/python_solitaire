@@ -5,7 +5,7 @@ from Class.Card import Card
 class PlayingColumn(Column):
     def __init__(
         self,
-        num_of_cards: "int: pass one less then intended amount",
+        num_of_cards: "int",
         deck: "list",
         can_accept_cards: "bool",
     ):
