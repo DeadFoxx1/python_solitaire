@@ -1,6 +1,5 @@
 from Class.Deck import Deck
 
-
 class Column:
     def __init__(
         self,
