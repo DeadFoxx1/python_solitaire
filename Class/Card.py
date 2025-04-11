@@ -1,14 +1,20 @@
 import os
 import pygame
 
+
 class Card:
-    def __init__(self, suit: "str: must be a suit as defined in setting.SUITS", value: "int: must be either 0-13 or Str: joker. If 0, will be a foundation", is_face_up: bool):
+    def __init__(
+        self,
+        suit: "str: must be a suit as defined in setting.SUITS",
+        value: "int: must be either 0-13. If 0, will be a foundation",
+        is_face_up: bool,
+    ):
         self.suit = suit
         self.value = value
         self.is_face_up = is_face_up
         self.load_image()
         self.is_selected = False
-        
+
     def __str__(self):
         return f"{self.value}{self.suit}{self.is_face_up}"
 
@@ -19,6 +25,7 @@ class Card:
     @suit.setter
     def suit(self, suit: "Must be defined in settings or 0 for restart_deck"):
         from setting import SUITS
+
         if suit in SUITS or suit == 0:
             self.__suit = suit
         else:
@@ -33,7 +40,9 @@ class Card:
         if value in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]:
             self.__value = value
         else:
-            raise ValueError("Must be either 0-14. If 0, will be a foundation, if 14, will be blank")
+            raise ValueError(
+                "Must be either 0-14. If 0, will be a foundation, if 14, will be blank"
+            )
 
     @property
     def is_face_up(self):
@@ -47,7 +56,7 @@ class Card:
     @property
     def is_selected(self):
         return self.__is_selected
-    
+
     @is_selected.setter
     def is_selected(self, bool):
         if bool:
@@ -58,7 +67,7 @@ class Card:
 
     @property
     def color(self):
-        
+
         if self.suit == 0:
             return 0
         elif self.suit in ["H", "D"]:
@@ -73,15 +82,32 @@ class Card:
         if value = 0, show foundation card
         also updates card size, yellow highlight size, and rect obj size (for when the screen size changes)"""
         from setting import get_card_height, get_card_width
-        if self.value == 0:
-            image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self.suit}_empty.png'))
-        elif self.is_face_up == False:
-            image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/red_back_blank.png'))
-        else:
-            image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self.value}{self.suit}.png'))
 
-        self.image = pygame.transform.scale(image, (get_card_width(), get_card_height()))
-        self.yellow_highlight =  pygame.Surface(self.image.get_size())
+        if self.value == 0:
+            image = pygame.image.load(
+                os.path.join(
+                    os.path.dirname(__file__), "..", f"assets/{self.suit}_empty.png"
+                )
+            )
+        elif self.is_face_up == False:
+            image = pygame.image.load(
+                os.path.join(
+                    os.path.dirname(__file__), "..", f"assets/red_back_blank.png"
+                )
+            )
+        else:
+            image = pygame.image.load(
+                os.path.join(
+                    os.path.dirname(__file__),
+                    "..",
+                    f"assets/{self.value}{self.suit}.png",
+                )
+            )
+
+        self.image = pygame.transform.scale(
+            image, (get_card_width(), get_card_height())
+        )
+        self.yellow_highlight = pygame.Surface(self.image.get_size())
         self.yellow_highlight.fill((255, 255, 0))
         self.yellow_highlight.set_alpha(0)
         # the actual hitbox
@@ -90,6 +116,7 @@ class Card:
     def display(self, x, y):
         """displays the card at given cords"""
         from obj import screen
+
         screen.blit(self.image, (x, y))
         screen.blit(self.yellow_highlight, (x, y))
         self.rect.topleft = (x, y)
