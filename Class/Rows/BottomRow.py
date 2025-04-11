@@ -1,14 +1,15 @@
-from Class.Columns.Column import Column
+from Class.Columns.Foundation import Foundation
 from Class.Columns.DrawDeck import DrawDeck
+from Class.Columns.DrawnColumn import DrawnColumn
 from Class.Rows.Row import Row
 
 
-def set_contents(row, foundation, deck):
+def set_contents(row, foundation_deck, deck):
     contents = [
         DrawDeck(23, deck),
-        Column(-1, deck, False),
+        DrawnColumn(),
     ]
-    contents.extend(Column(0, foundation, False) for x in range(4))
+    contents.extend(Foundation(0, foundation_deck) for x in range(4))
     return contents
 
 
