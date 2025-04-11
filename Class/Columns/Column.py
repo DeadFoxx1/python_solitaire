@@ -1,20 +1,14 @@
-from Class.Deck import Deck
-
-
 class Column:
     def __init__(
         self,
         num_of_cards: "int: pass one less then intended amount",
-        deck: "Deck object",
+        deck: "list",
         can_accept_cards: "bool",
     ):
-        if isinstance(deck, Deck):
-            self.contents = [
-                deck.contents.pop(card)
-                for card in range(min(num_of_cards, len(deck.contents)), -1, -1)
-            ]
-        else:
-            self.contents = []
+
+        self.contents = [
+            deck.pop(card) for card in range(min(num_of_cards, len(deck)), -1, -1)
+        ]
 
         self.can_accept_cards = can_accept_cards
 
