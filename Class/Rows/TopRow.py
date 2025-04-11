@@ -7,7 +7,7 @@ class TopRow(Row):
     def __init__(self, deck: "list", num_of_columns):
         super().__init__(num_of_columns)
         self.contents = [
-            PlayingColumn(x, deck, True) for x in range(self.num_of_columns)
+            PlayingColumn(x + 1, deck, True) for x in range(self.num_of_columns)
         ]
 
     def display(self):
