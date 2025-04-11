@@ -6,10 +6,10 @@ from Class.Rows.Row import Row
 
 def set_contents(row, deck, foundation_deck):
     contents = [
-        DrawDeck(23, deck),
+        DrawDeck(24, deck),
         DrawnColumn(),
     ]
-    contents.extend(Foundation(0, foundation_deck) for x in range(4))
+    contents.extend(Foundation(1, foundation_deck) for _ in range(4))
     return contents
 
 

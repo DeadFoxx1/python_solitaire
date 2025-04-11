@@ -1,13 +1,13 @@
 class Column:
     def __init__(
         self,
-        num_of_cards: "int: pass one less then intended amount",
+        num_of_cards: "int",
         deck: "list",
         can_accept_cards: "bool",
     ):
 
         self.contents = [
-            deck.pop(card) for card in range(min(num_of_cards, len(deck)), -1, -1)
+            deck.pop(card) for card in range(min(num_of_cards - 1, len(deck)), -1, -1)
         ]
 
         self.can_accept_cards = can_accept_cards
