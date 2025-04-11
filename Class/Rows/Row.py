@@ -1,10 +1,11 @@
 from Class.Columns.Column import Column
 from Class.Deck import Deck
 
+
 class Row:
     def __init__(self, deck: "deck object", num_of_columns):
         if not isinstance(deck, Deck):
-            raise ValueError("Must pass in Deck object")
+            raise ValueError("Must pass a Deck object")
         self.deck = deck
         self.num_of_columns = num_of_columns
         self.set_cache = None

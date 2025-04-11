@@ -2,18 +2,27 @@ from Class.Columns.Column import Column
 from Class.Columns.DrawDeck import DrawDeck
 from Class.Rows.Row import Row
 
-class BottomRow(Row):
-    def __init__(self, deck: "deck object", num_of_columns, foundation: "foundation deck object"):
-        super().__init__(deck, num_of_columns)
-        self.foundation = foundation
-        self.__set_contents()
 
-    def __set_contents(self):
-        self.contents = [DrawDeck(23, self.deck), Column(-1, self.deck), Column(-1, self.deck)]
-        self.contents.extend(Column(0, self.foundation) for x in range(4))
+def set_contents(row, foundation):
+    contents = [
+        DrawDeck(23, row.deck),
+        Column(-1, row.deck),
+        Column(-1, row.deck),
+    ]
+    contents.extend(Column(0, foundation) for x in range(4))
+    return contents
+
+
+class BottomRow(Row):
+    def __init__(
+        self, deck: "deck object", num_of_columns, foundation: "foundation deck object"
+    ):
+        super().__init__(deck, num_of_columns)
+        self.contents = set_contents(self, foundation)
 
     def display(self):
         from setting import get_x_offset, SCREEN_HEIGHT
+
         x = 0
         for column in self.contents:
             column.display_column(x, SCREEN_HEIGHT)
@@ -29,7 +38,7 @@ class BottomRow(Row):
                 output.append(deck.pop())
             output[-1].is_face_up = True
         elif length_of_deck > 1:
-            for card in deck[:(length_of_deck - 1)]:
+            for card in deck[: (length_of_deck - 1)]:
                 output.append(deck.pop())
             output[-1].is_face_up = True
         else:
