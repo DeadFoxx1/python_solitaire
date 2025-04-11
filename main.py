@@ -2,10 +2,10 @@ import sys
 import pygame
 import setting
 import obj
-import utill
+import util
 
 # game init
-utill.game_init()
+util.game_init()
 
 
 # main game loop
@@ -16,15 +16,15 @@ while True:
             pygame.quit()
             sys.exit()
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            utill.select_card(event.pos)
+            util.select_card(event.pos)
         elif event.type == pygame.VIDEORESIZE:
-            utill.update_card()
+            util.update_card()
 
     # add green background
     obj.screen.fill(setting.BG_COLOR)
 
     # display cards
-    utill.display_rows()
+    util.display_rows()
 
     # fps control and screen refresh MUST BE RUN LAST SO DRAWN FRAMES CAN UPDATE
     obj.clock.tick(setting.FPS)
