@@ -36,5 +36,5 @@ class Column:
         return
 
     def move_card(self, card_index, column):
-        for card in range(card_index, len(self.contents)):
+        for _ in range(card_index, len(self.contents)):
             column.contents.append(self.contents.pop(card_index))
