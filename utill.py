@@ -79,6 +79,7 @@ def move_card(card_destination):
         and (
             destination_column[-1].color != card_cache[1].color
             and destination_column[-1].value == card_cache[1].value + 1
+            and card_destination[0].can_accept_cards
         )
         or (
             destination_column[0].value == 0

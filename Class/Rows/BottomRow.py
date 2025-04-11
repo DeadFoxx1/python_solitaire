@@ -6,9 +6,9 @@ from Class.Rows.Row import Row
 def set_contents(row, foundation, deck):
     contents = [
         DrawDeck(23, deck),
-        Column(-1, deck),
+        Column(-1, deck, False),
     ]
-    contents.extend(Column(0, foundation) for x in range(4))
+    contents.extend(Column(0, foundation, False) for x in range(4))
     return contents
 
 
