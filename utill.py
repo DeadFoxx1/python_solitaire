@@ -69,7 +69,7 @@ def move_card(card_destination):
     ]
     destination_column = card_destination[0].contents
 
-    # if the color is opposite and the destination is on more
+    # if the color is opposite and the destination is one more in value
     # OR if the destination is a foundation, the suit is the same, and the value is one more then in the foundation,
     # move
     if (
