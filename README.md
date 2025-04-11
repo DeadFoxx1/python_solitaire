@@ -3,9 +3,8 @@ I started this project as soon as I learned about what a python class is.
 THIS MEANS ITS TRASH!!!  
 Honestly don't know what I was doing with this lol  
 Also this was before I had a GitHub account so thats why the commits are all wonky  
-Also also, I don't remember how I got the card assets. some I made myself (by coloring over others)  
-Also also also, right now the draw deck don't correctly work soooooooooo  
-Also also also also (last one), This was originaly a school project so there may be some stupid comments :p 
+Also also, I don't remember how I got the card assets. some I made myself (by coloring over others)    
+Also also also (last one), This was originaly a school project so there may be some stupid comments :p 
 
 # Dependencies:
 python  
