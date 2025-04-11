@@ -19,12 +19,3 @@ class Row:
             elif result != None:
                 return (column, result)
         return
-
-    def __update_card(self):
-        raise NotImplementedError("overwritten in subclass.")
-
-    def __display(self):
-        raise NotImplementedError("overwritten in subclass.")
-
-    def __set_contents(self):
-        raise NotImplementedError("overwritten in subclass.")
