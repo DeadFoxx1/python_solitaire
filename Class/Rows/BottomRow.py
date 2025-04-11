@@ -7,7 +7,6 @@ def set_contents(row, foundation, deck):
     contents = [
         DrawDeck(23, deck),
         Column(-1, deck),
-        Column(-1, deck),
     ]
     contents.extend(Column(0, foundation) for x in range(4))
     return contents
