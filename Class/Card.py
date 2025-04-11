@@ -71,7 +71,7 @@ class Card:
         if face down show back of card
         if face up show card based on suit and num
         if value = 0, show foundation card
-        also updates card size, yellow highlight size, and rect onj size"""
+        also updates card size, yellow highlight size, and rect obj size (for when the screen size changes)"""
         from setting import get_card_height, get_card_width
         if self.value == 0:
             image = pygame.image.load(os.path.join(os.path.dirname(__file__), '..', f'assets/{self.suit}_empty.png'))
@@ -84,6 +84,7 @@ class Card:
         self.yellow_highlight =  pygame.Surface(self.image.get_size())
         self.yellow_highlight.fill((255, 255, 0))
         self.yellow_highlight.set_alpha(0)
+        # the actual hitbox
         self.rect = self.image.get_rect()
 
     def display(self, x, y):
