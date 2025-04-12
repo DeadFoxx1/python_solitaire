@@ -1,6 +1,3 @@
-from Class.Columns.Column import Column
-
-
 class Row:
     def __init__(self, num_of_columns):
         self.num_of_columns = num_of_columns

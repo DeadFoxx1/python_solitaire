@@ -1,5 +1,4 @@
 from Class.Columns.Column import Column
-from Class.Card import Card
 
 
 class Foundation(Column):

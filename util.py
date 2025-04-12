@@ -21,6 +21,7 @@ def game_init():
 
 def output_debug():
     from obj import top_row, bottom_row
+
     for column in top_row.contents:
         for card in column.contents:
             print(card)

@@ -9,7 +9,7 @@ def set_contents(row, deck, foundation_deck):
         DrawDeck(24, deck),
         DrawnColumn(),
         # this is used for extra space between foundations and drawn cards
-        DrawnColumn()
+        DrawnColumn(),
     ]
     contents.extend(Foundation(1, foundation_deck) for _ in range(4))
     return contents
