@@ -16,7 +16,7 @@ def set_contents(row, deck, foundation_deck):
 
 
 class BottomRow(Row):
-    def __init__(self, deck: "list", num_of_columns, foundation_deck: "list"):
+    def __init__(self, deck: list, num_of_columns: int, foundation_deck: list):
         super().__init__(num_of_columns)
         self.contents = set_contents(self, deck, foundation_deck)
 

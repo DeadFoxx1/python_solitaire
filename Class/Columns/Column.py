@@ -1,9 +1,9 @@
 class Column:
     def __init__(
         self,
-        num_of_cards: "int",
-        deck: "list",
-        can_accept_cards: "bool",
+        num_of_cards: int,
+        deck: list,
+        can_accept_cards: bool,
     ):
 
         self.contents = [

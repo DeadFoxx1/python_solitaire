@@ -5,9 +5,9 @@ from Class.Card import Card
 class PlayingColumn(Column):
     def __init__(
         self,
-        num_of_cards: "int",
-        deck: "list",
-        can_accept_cards: "bool",
+        num_of_cards: int,
+        deck: list,
+        can_accept_cards: bool,
     ):
         super().__init__(num_of_cards, deck, can_accept_cards)
         self.contents.insert(0, Card(0, 14, True))
@@ -16,7 +16,7 @@ class PlayingColumn(Column):
         self,
         x,
         y,
-        y_offset: "Optional, int: adds this value to y after every card" = 0,
+        y_offset: "int" = 0,
     ):
         """iterate through the different cards in the column and displays them on screen with the passed in cords and offset"""
         for card in self.contents:

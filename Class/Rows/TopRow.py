@@ -4,7 +4,7 @@ from Class.Rows.Row import Row
 
 class TopRow(Row):
 
-    def __init__(self, deck: "list", num_of_columns):
+    def __init__(self, deck: list, num_of_columns: int):
         super().__init__(num_of_columns)
         self.contents = [
             PlayingColumn(x + 1, deck, True) for x in range(self.num_of_columns)

@@ -5,8 +5,8 @@ import pygame
 class Card:
     def __init__(
         self,
-        suit: "str: must be a suit as defined in setting.SUITS",
-        value: "int: must be either 0-13. If 0, will be a foundation",
+        suit: str,
+        value: int,
         is_face_up: bool,
     ):
         self.suit = suit
@@ -23,7 +23,7 @@ class Card:
         return self.__suit
 
     @suit.setter
-    def suit(self, suit: "Must be defined in settings or 0 for restart_deck"):
+    def suit(self, suit: str):
         from setting import SUITS
 
         if suit in SUITS or suit == 0:
