@@ -39,7 +39,10 @@ python main.py
 1. Is it normal for a python repo README to have instructions on how to make a virtual environment?  
 This is literally my first repo so idk what the standard is.  
 
-2. The terminal is set to output the contents of each column for debug purposes (might make a toggle in the future)  
+2. run for debug output:
+```sh
+python main.py --debug=True
+```
 each card object \__str__() is shown like this:
 ```sh
 #5 of clubs that is face down:
