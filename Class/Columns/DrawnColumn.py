@@ -16,4 +16,11 @@ class DrawnColumn(Column):
         """iterate through the different cards in the column and displays them on screen with the passed in cords and offset"""
         for card in self.contents[-3:]:
             card.display(x, y)
-            x += 20
+            x += 40
+
+    def select_card(self, pos):
+        for card in reversed(self.contents):
+            if card.rect.collidepoint(pos) and card == self.contents[-1]:
+                card.is_selected = True
+                return card
+        return
