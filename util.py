@@ -5,7 +5,10 @@ card_cache = None
 
 # run at creation of game but will not loop
 def game_init():
-    from obj import top_row, bottom_row
+    from obj import parser
+
+    if parser.parse_args().debug:
+        output_debug()
 
     # init pygame
     pygame.init()
@@ -15,7 +18,9 @@ def game_init():
 
     update_card()
 
-    # debug: print attributes of each card in each column
+
+def output_debug():
+    from obj import top_row, bottom_row
     for column in top_row.contents:
         for card in column.contents:
             print(card)

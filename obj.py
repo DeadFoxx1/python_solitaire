@@ -1,10 +1,14 @@
 import pygame
 import random
+import argparse
 from setting import SCREEN_WIDTH, SCREEN_HEIGHT, SUITS
-from Class.Columns.Column import Column
 from Class.Rows.TopRow import TopRow
 from Class.Rows.BottomRow import BottomRow
 from Class.Card import Card
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--debug", type=bool, default=False)
+
 
 # create necessary pygame objects for screen and fps control
 clock = pygame.time.Clock()
