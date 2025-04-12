@@ -13,8 +13,8 @@ pygame
 # Setup:
 ## 1. Clone the repo and make a virtual environment:
 ```sh
-git clone https://github.com/DeadFoxx1/Python_Solitaire
-cd Python_Solitaire
+git clone https://github.com/DeadFoxx1/python_Solitaire
+cd python_Solitaire
 python -m venv .venv
 ```
 ## 2. Activate the venv:
