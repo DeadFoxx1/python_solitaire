@@ -19,3 +19,10 @@ class Row:
             elif selected_card != None:
                 return (column, selected_card)
         return
+
+    def update_card(self):
+        for column in self.contents:
+            if column.contents:
+                for card in column.contents:
+                    card.is_selected = False
+                    card.load_image()

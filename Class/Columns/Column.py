@@ -16,14 +16,10 @@ class Column:
         self,
         x,
         y,
-        x_offset: "Optional, int: adds this value to x after every card" = 0,
-        y_offset: "Optional, int: adds this value to y after every card" = 0,
     ):
         """iterate through the different cards in the column and displays them on screen with the passed in cords and offset"""
         for card in self.contents:
             card.display(x, y)
-            x += x_offset
-            y += y_offset
 
     def select_card(self, pos):
         for card in reversed(self.contents):

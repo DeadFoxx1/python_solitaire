@@ -11,3 +11,14 @@ class PlayingColumn(Column):
     ):
         super().__init__(num_of_cards, deck, can_accept_cards)
         self.contents.insert(0, Card(0, 14, True))
+
+    def display_column(
+        self,
+        x,
+        y,
+        y_offset: "Optional, int: adds this value to y after every card" = 0,
+    ):
+        """iterate through the different cards in the column and displays them on screen with the passed in cords and offset"""
+        for card in self.contents:
+            card.display(x, y)
+            y += y_offset

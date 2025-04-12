@@ -52,10 +52,3 @@ class BottomRow(Row):
             drawn_card = main_deck.pop()
             drawn_card.is_face_up = True
             output.append(drawn_card)
-
-    def update_card(self):
-        for column in self.contents:
-            if len(column.contents) != 0:
-                for card in column.contents:
-                    card.is_selected = False
-                    card.load_image()
