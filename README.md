@@ -34,27 +34,22 @@ pip install -r requirements.txt
 ```sh
 python main.py
 ```
-
-# Additional Notes:
-1. Is it normal for a python repo README to have instructions on how to make a virtual environment?  
-This is literally my first repo so idk what the standard is.  
-
-2. run for debug output:
+# DEBUG:  
+Run for debug output:
 ```sh
 python main.py --debug=True
 ```
-each card object \__str__() is shown like this:
+Each card object \__str__() is shown like this:
 ```sh
 #5 of clubs that is face down:
 5CFalse
 ```  
-
-3. Face cards are still their number value:
+Face cards are still their number value:
 ```sh
 #king of clubs facing up:
 13CTrue
 ```
-4. Foundations and the very top of the columns are also card objects:
+Foundations and the very top of the columns are also card objects:
 ```sh
 #all tops of the top columns are:
 140True
@@ -62,9 +57,7 @@ each card object \__str__() is shown like this:
 #the foundations (specific to their suit):
 0HTrue 
 ```
-5. The contents of the columns are printed before the bottom of the columns are set face up so they are all printed as face down initially (might fix later)
-
-6. a successful move is printed as:
+Other moves:
 ```sh
 #valid move:
 move 1STrue to 0STrue
