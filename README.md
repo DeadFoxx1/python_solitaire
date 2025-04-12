@@ -28,7 +28,7 @@ source .venv/bin/activate
 ```
 ## 3. Install dependencies:
 ```sh
-pip install -r requirements.txt # right now it's just pygame 
+pip install -r requirements.txt
 ```
 ## 4. Run it :3
 ```sh
