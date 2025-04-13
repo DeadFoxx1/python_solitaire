@@ -1,8 +1,24 @@
 import argparse
 
+
+def cards_to_draw(value):
+    ivalue = int(value)
+    if ivalue > 24:
+        raise argparse.ArgumentTypeError(f"not enough cards {value}")
+    return ivalue
+
+
 parser = argparse.ArgumentParser()
-parser.add_argument("--debug", type=bool, default=False)
-parser.add_argument("--cardstodraw", type=int, default=3)
+parser.add_argument(
+    "-d", "--debug", type=bool, default=False, help="enables debug output"
+)
+parser.add_argument(
+    "-c",
+    "--cardstodraw",
+    type=cards_to_draw,
+    default=3,
+    help="number of cards to draw at a time (must be less then 24)",
+)
 
 DEBUG = parser.parse_args().debug
 

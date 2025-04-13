@@ -1,6 +1,6 @@
+import setting
 import sys
 import pygame
-import setting
 import obj
 import util
 
