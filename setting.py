@@ -1,3 +1,10 @@
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--debug", type=bool, default=False)
+
+DEBUG = parser.parse_args().debug
+
 FPS = 60
 
 BG_COLOR = (33, 148, 0)

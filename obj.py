@@ -1,6 +1,5 @@
 import pygame
 import random
-import argparse
 from setting import SCREEN_WIDTH, SCREEN_HEIGHT, SUITS
 from Class.Rows.TopRow import TopRow
 from Class.Rows.BottomRow import BottomRow
@@ -12,9 +11,6 @@ def create_shuffled_deck():
     random.shuffle(deck)
     return deck
 
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--debug", type=bool, default=False)
 
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE)

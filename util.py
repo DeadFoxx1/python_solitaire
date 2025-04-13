@@ -5,9 +5,9 @@ card_cache = None
 
 # run at creation of game but will not loop
 def game_init():
-    from obj import parser
+    from setting import DEBUG
 
-    if parser.parse_args().debug:
+    if DEBUG:
         output_debug()
 
     # init pygame
@@ -70,6 +70,7 @@ def select_card(pos):
 
 
 def move_card(card_destination):
+    from setting import DEBUG
     global card_cache
     cards_to_move = card_cache[0].contents[
         card_cache[0].contents.index(card_cache[1]) :
@@ -93,14 +94,16 @@ def move_card(card_destination):
         )
     ):
 
-        print(f"move {card_cache[1]} to {card_destination[1]}")
+        if DEBUG:
+            print(f"move {card_cache[1]} to {card_destination[1]}")
         for card in cards_to_move:
             card_cache[0].contents.remove(card)
             card_destination[0].contents.append(card)
         if len(card_cache[0].contents) != 0:
             card_cache[0].contents[-1].is_face_up = True
     else:
-        print("invalid move")
+        if DEBUG:
+            print(f"invalid move ({card_cache[1]} to {card_destination[1]})")
 
 
 def update_card():
