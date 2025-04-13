@@ -30,6 +30,7 @@ class BottomRow(Row):
             x += get_x_offset(self.num_of_columns)
 
     def draw_card(self):
+        from setting import CARDS_TO_DRAW
         # this represents the main drawing deck (furthest to the left)
         main_deck = self.contents[0].contents
 
@@ -38,8 +39,8 @@ class BottomRow(Row):
 
         length_of_deck = len(main_deck)
 
-        if length_of_deck > 3:
-            num_cards_to_draw = 3
+        if length_of_deck > CARDS_TO_DRAW:
+            num_cards_to_draw = CARDS_TO_DRAW
         else:
             num_cards_to_draw = length_of_deck - 1
 

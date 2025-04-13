@@ -2,8 +2,11 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--debug", type=bool, default=False)
+parser.add_argument("--cardstodraw", type=int, default=3)
 
 DEBUG = parser.parse_args().debug
+
+CARDS_TO_DRAW = parser.parse_args().cardstodraw
 
 FPS = 60
 

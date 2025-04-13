@@ -14,5 +14,4 @@ class DrawDeck(Column):
     def select_card(self, pos):
         for card in reversed(self.contents):
             if card.rect.collidepoint(pos):
-                print("draw")
                 return "draw"

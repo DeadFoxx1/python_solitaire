@@ -50,8 +50,11 @@ def clear_select_cards(selected_card):
 def select_card(pos):
     global card_cache
     from obj import top_row, bottom_row
+    from setting import DEBUG
 
     if (result := bottom_row.select_card(pos)) == "draw":
+        if DEBUG:
+            print("draw card")
         bottom_row.draw_card()
         return
     elif result != None:
