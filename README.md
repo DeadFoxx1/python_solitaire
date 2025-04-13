@@ -32,7 +32,17 @@ pip install -r requirements.txt
 ```
 ## 4. Run it :3
 ```sh
+#normal (no debug and draw 3)
 python main.py
+
+#easy mode
+python  main.py --cardstodraw=1
+
+#debug mode
+python main.py --debug=True
+
+#you can use both args at the same time
+python main.py --debug=True --cardstodraw=1
 ```
 # DEBUG:  
 Run for debug output:
