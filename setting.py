@@ -4,7 +4,7 @@ import argparse
 def cards_to_draw(value):
     ivalue = int(value)
     if ivalue > 24:
-        raise argparse.ArgumentTypeError(f"not enough cards {value}")
+        raise argparse.ArgumentTypeError(f"too many cards {value}")
     return ivalue
 
 
