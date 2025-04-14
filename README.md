@@ -54,12 +54,12 @@ python  main.py -c=1
 python main.py -d=True
 
 #you can use both args at the same time
-python main.py --d=True --c=1
+python main.py -d=True -c=1
 ```
 # DEBUG:  
 Run for debug output:
 ```sh
-python main.py --d=True
+python main.py -d=True
 ```
 Each card object \__str__() is shown like this:
 ```sh
