@@ -31,20 +31,35 @@ pip install -r requirements.txt
 ```sh
 #normal (no debug and draw 3)
 python main.py
+```
+## 5. Extra options:
+```sh
+#see -h for help
+python main.py -h
+```
+```
+usage: main.py [-h] [-d DEBUG] [-c CARDSTODRAW]
 
+options:
+  -h, --help            show this help message and exit
+  -d, --debug DEBUG     enables debug output
+  -c, --cardstodraw CARDSTODRAW
+                        number of cards to draw at a time (must be less then 24)
+```
+```sh
 #easy mode
-python  main.py --cardstodraw=1
+python  main.py -c=1
 
 #debug mode
-python main.py --debug=True
+python main.py -d=True
 
 #you can use both args at the same time
-python main.py --debug=True --cardstodraw=1
+python main.py --d=True --c=1
 ```
 # DEBUG:  
 Run for debug output:
 ```sh
-python main.py --debug=True
+python main.py --d=True
 ```
 Each card object \__str__() is shown like this:
 ```sh
