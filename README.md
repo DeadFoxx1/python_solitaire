@@ -85,7 +85,7 @@ Other moves:
 move 1STrue to 0STrue
 
 #invalid move:
-invalid move
+invalid move (3CTrue to 13HTrue)
 
 #a card drawing:
 draw
