@@ -56,6 +56,7 @@ def select_card(pos):
         if DEBUG:
             print("draw card")
         bottom_row.draw_card()
+        card_cache = None
         return
     elif result != None:
         selected_card = result
