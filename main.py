@@ -4,14 +4,15 @@ import pygame
 import obj
 import util
 
-# game init
-util.game_init()
-
 
 def draw_screen():
     obj.screen.fill(setting.BG_COLOR)
     util.display_rows()
 
+
+# game init
+util.game_init()
+draw_screen()
 
 # main game loop
 while True:
