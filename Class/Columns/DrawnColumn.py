@@ -14,11 +14,11 @@ class DrawnColumn(Column):
         y,
     ):
         """iterate through the different cards in the column and displays them on screen with the passed in cords and offset"""
-        from setting import get_x_offset, CARDS_TO_DRAW
+        from setting import CARDS_TO_DRAW, get_screen_width
 
         for card in self.contents[-max(CARDS_TO_DRAW, 3):]:
             card.display(x, y)
-            x += min((get_x_offset(7) / CARDS_TO_DRAW), 40)
+            x += min(((get_screen_width() / 7)/ CARDS_TO_DRAW), 40)
 
     def select_card(self, pos):
         for card in reversed(self.contents):

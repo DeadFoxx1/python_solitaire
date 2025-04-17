@@ -21,16 +21,16 @@ class BottomRow(Row):
         self.contents = set_contents(self, deck, foundation_deck)
 
     def display(self):
-        from setting import get_x_offset, CARD_HEIGHT
-        from obj import screen
+        from setting import CARD_HEIGHT, get_screen_width, get_screen_height
 
         x = 0
         for column in self.contents:
-            column.display_column(x, screen.get_size()[1] - CARD_HEIGHT)
-            x += get_x_offset(self.num_of_columns)
+            column.display_column(x, get_screen_height() - CARD_HEIGHT)
+            x += get_screen_width() / 7
 
     def draw_card(self):
         from setting import CARDS_TO_DRAW
+
         # this represents the main drawing deck (furthest to the left)
         main_deck = self.contents[0].contents
 

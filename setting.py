@@ -1,6 +1,28 @@
 import argparse
 
 
+def get_screen_width():
+    from obj import screen
+
+    return screen.get_width()
+
+
+def get_screen_height():
+    from obj import screen
+
+    return screen.get_height()
+
+
+# calculate what the width of the card should be depending on the width of the screen. used to prevent distortion
+def get_card_width():
+    from obj import screen
+
+    if screen.get_size()[0] / 7 >= 169:
+        return 169
+    else:
+        return screen.get_size()[0] / 7
+
+
 def cards_to_draw(value):
     ivalue = int(value)
     if ivalue > 24:
@@ -28,28 +50,11 @@ FPS = 60
 
 BG_COLOR = (33, 148, 0)
 
-SCREEN_WIDTH, SCREEN_HEIGHT = (500, 500)
-
 CARD_HEIGHT = 262
 
-# how far down the cards should offset from each other in the column
+# the playing column automatically solves for this based on the amount of cards in the column
+# this sets the minimum length of the get_x_offset
+# NOTE: if this value is larger then the calculated offset, it means it would result in column overlap and will be ignored
 Y_OFFSET = 50
 
 SUITS = ["H", "S", "D", "C"]
-
-
-# calculate what the width of the card should be depending on the width of the screen. used to prevent distortion
-def get_card_width():
-    from obj import screen
-
-    if screen.get_size()[0] / 7 >= 169:
-        return 169
-    else:
-        return screen.get_size()[0] / 7
-
-
-# calculate a fraction of the screen width. used to offset card columns equally and depending on screen width
-def get_x_offset(denominator):
-    from obj import screen
-
-    return (screen.get_size()[0]) / denominator

@@ -1,6 +1,6 @@
 import pygame
 import random
-from setting import SCREEN_WIDTH, SCREEN_HEIGHT, SUITS
+from setting import SUITS
 from Class.Rows.TopRow import TopRow
 from Class.Rows.BottomRow import BottomRow
 from Class.Card import Card
@@ -13,7 +13,7 @@ def create_shuffled_deck():
 
 
 clock = pygame.time.Clock()
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE)
+screen = pygame.display.set_mode((500, 500), pygame.RESIZABLE)
 
 deck = create_shuffled_deck()
 
