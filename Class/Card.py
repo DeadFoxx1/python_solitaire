@@ -12,7 +12,6 @@ class Card:
         self.suit = suit
         self.value = value
         self.is_face_up = is_face_up
-        self.load_image()
         self.is_selected = False
 
     def __str__(self):
