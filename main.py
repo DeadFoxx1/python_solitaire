@@ -21,7 +21,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-        elif event.type == pygame.MOUSEBUTTONDOWN:
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             util.select_card(event.pos)
             draw_screen()
         elif event.type == pygame.VIDEORESIZE:
