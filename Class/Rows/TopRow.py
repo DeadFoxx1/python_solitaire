@@ -11,11 +11,11 @@ class TopRow(Row):
         ]
 
     def display(self):
-        from setting import get_x_offset, Y_OFFSET
+        from setting import get_x_offset
 
         x = 0
         for column in self.contents:
-            column.display_column(x, 0, Y_OFFSET)
+            column.display_column(x, 0)
             x += get_x_offset(self.num_of_columns)
 
     def update_card(self):

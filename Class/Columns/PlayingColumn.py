@@ -16,9 +16,13 @@ class PlayingColumn(Column):
         self,
         x,
         y,
-        y_offset: "int" = 0,
     ):
         """iterate through the different cards in the column and displays them on screen with the passed in cords and offset"""
+        from setting import Y_OFFSET, SCREEN_HEIGHT, CARD_HEIGHT
+
         for card in self.contents:
             card.display(x, y)
-            y += y_offset
+            y += min(
+                Y_OFFSET,
+                (SCREEN_HEIGHT - len(self.contents)) / len(self.contents)
+            )
