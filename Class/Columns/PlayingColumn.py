@@ -18,11 +18,17 @@ class PlayingColumn(Column):
         y,
     ):
         """iterate through the different cards in the column and displays them on screen with the passed in cords and offset"""
-        from setting import Y_OFFSET, CARD_HEIGHT, get_screen_height
+        from setting import MAX_Y_OFFSET, get_card_height, get_screen_height
 
         for card in self.contents:
             card.display(x, y)
             y += min(
-                Y_OFFSET,
-                (get_screen_height() - (2 * CARD_HEIGHT)) / len(self.contents)
+                MAX_Y_OFFSET,
+                # basically divide the height above the bottom row by how many cards that are in the collumn
+                # and if negative, use 0
+                max(
+                    0,
+                    (get_screen_height() - (2 * get_card_height()))
+                    / len(self.contents),
+                ),
             )
