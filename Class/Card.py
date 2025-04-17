@@ -82,7 +82,7 @@ class Card:
         if value = 0, show foundation card
         also updates card size, yellow highlight size, and rect obj size (for when the screen size changes)
         """
-        from setting import CARD_HEIGHT, get_card_width
+        from setting import get_card_height, get_card_width
 
         if self.value == 0:
             image = pygame.image.load(
@@ -105,7 +105,9 @@ class Card:
                 )
             )
 
-        self.image = pygame.transform.scale(image, (get_card_width(), CARD_HEIGHT))
+        self.image = pygame.transform.scale(
+            image, (get_card_width(), get_card_height())
+        )
         self.yellow_highlight = pygame.Surface(self.image.get_size())
         self.yellow_highlight.fill((255, 255, 0))
         self.yellow_highlight.set_alpha(0)

@@ -13,14 +13,14 @@ def get_screen_height():
     return screen.get_height()
 
 
-# calculate what the width of the card should be depending on the width of the screen. used to prevent distortion
 def get_card_width():
     from obj import screen
 
-    if screen.get_size()[0] / 7 >= 169:
-        return 169
-    else:
-        return screen.get_size()[0] / 7
+    return min(MAX_CARD_WIDTH, get_screen_width() / 7)
+
+
+def get_card_height():
+    return min(MAX_CARD_HEIGHT, get_screen_height() / 3)
 
 
 def cards_to_draw(value):
@@ -50,11 +50,14 @@ FPS = 60
 
 BG_COLOR = (33, 148, 0)
 
-CARD_HEIGHT = 262
+MAX_CARD_WIDTH = 169
+
+MAX_CARD_HEIGHT = 262
+
 
 # the playing column automatically solves for this based on the amount of cards in the column
-# this sets the minimum length of the get_x_offset
+# this sets the max length of the y_offset
 # NOTE: if this value is larger then the calculated offset, it means it would result in column overlap and will be ignored
-Y_OFFSET = 50
+MAX_Y_OFFSET = 50
 
 SUITS = ["H", "S", "D", "C"]

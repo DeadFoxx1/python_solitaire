@@ -75,6 +75,7 @@ def select_card(pos):
 
 def move_card(card_destination):
     from setting import DEBUG
+
     global card_cache
     cards_to_move = card_cache[0].contents[
         card_cache[0].contents.index(card_cache[1]) :
