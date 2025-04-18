@@ -22,7 +22,7 @@ source .venv/bin/activate
 ```
 ### On Windows:
 ```sh
- .venv\Scripts\activate
+.\.venv\Scripts\activate
 ```
 ## 3. Install dependencies:
 ```sh
