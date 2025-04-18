@@ -1,6 +1,0 @@
-{
-    {% for sprite in sprites -%}
-    "{{sprite.id}}": [{{sprite.rect.x}}, {{sprite.rect.y}}, {{sprite.rect.w}}, {{sprite.rect.h}}],
-
-    {% endfor %}
-}
