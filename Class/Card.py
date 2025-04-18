@@ -1,4 +1,3 @@
-import os
 import pygame
 
 
@@ -12,6 +11,7 @@ class Card:
         self.suit = suit
         self.value = value
         self.is_face_up = is_face_up
+        self.load_image()
         self.is_selected = False
 
     def __str__(self):
@@ -82,27 +82,14 @@ class Card:
         also updates card size, yellow highlight size, and rect obj size (for when the screen size changes)
         """
         from setting import get_card_height, get_card_width
+        from assets import get_image
 
         if self.value == 0:
-            image = pygame.image.load(
-                os.path.join(
-                    os.path.dirname(__file__), "..", f"assets/{self.suit}_empty.png"
-                )
-            )
+            image = get_image(f"{self.suit}_empty")
         elif self.is_face_up == False:
-            image = pygame.image.load(
-                os.path.join(
-                    os.path.dirname(__file__), "..", f"assets/red_back_blank.png"
-                )
-            )
+            image = get_image("red_back_blank")
         else:
-            image = pygame.image.load(
-                os.path.join(
-                    os.path.dirname(__file__),
-                    "..",
-                    f"assets/{self.value}{self.suit}.png",
-                )
-            )
+            image = get_image(f"{self.value}{self.suit}")
 
         self.image = pygame.transform.scale(
             image, (get_card_width(), get_card_height())
