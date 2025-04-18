@@ -1,8 +1,5 @@
-import setting
-import sys
-import pygame
-import obj
-import util
+import setting, util, obj
+import sys, pygame
 
 
 def draw_screen():

@@ -16,9 +16,9 @@ class DrawnColumn(Column):
         """iterate through the different cards in the column and displays them on screen with the passed in cords and offset"""
         from setting import CARDS_TO_DRAW, get_screen_width
 
-        for card in self.contents[-max(CARDS_TO_DRAW, 3):]:
+        for card in self.contents[-max(CARDS_TO_DRAW, 3) :]:
             card.display(x, y)
-            x += min(((get_screen_width() / 7)/ CARDS_TO_DRAW), 40)
+            x += min(((get_screen_width() / 7) / CARDS_TO_DRAW), 40)
 
     def select_card(self, pos):
         for card in reversed(self.contents):

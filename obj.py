@@ -1,5 +1,4 @@
-import pygame
-import random
+import pygame, random
 from setting import SUITS
 from Class.Rows.TopRow import TopRow
 from Class.Rows.BottomRow import BottomRow
