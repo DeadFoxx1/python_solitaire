@@ -12,7 +12,7 @@ def create_shuffled_deck():
 
 
 clock = pygame.time.Clock()
-screen = pygame.display.set_mode((500, 500), pygame.RESIZABLE)
+screen = pygame.display.set_mode((1024, 600), pygame.RESIZABLE)
 
 deck = create_shuffled_deck()
 

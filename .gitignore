@@ -2,5 +2,6 @@
 __pycache__/
 *.pyc
 .venv
+build
 .vscode
 .mypy_cache

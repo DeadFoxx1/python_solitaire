@@ -3,6 +3,14 @@ import pygame
 card_cache = None
 
 
+def update_screen():
+    from obj import screen
+    from setting import BG_COLOR
+
+    screen.fill(BG_COLOR)
+    display_rows()
+
+
 # run at creation of game but will not loop
 def game_init():
     from setting import DEBUG
@@ -12,9 +20,6 @@ def game_init():
 
     # init pygame
     pygame.init()
-
-    # pygame caption
-    pygame.display.set_caption("Pygame Template")
 
     update_card()
 
