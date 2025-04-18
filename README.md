@@ -5,7 +5,7 @@ Also also (last one), This was originaly a school project :p
 
 # Dependencies:
 python  
-pygame
+pygame  
 pygbag (for running web version)
 
 # Setup:
