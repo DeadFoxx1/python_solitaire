@@ -6,6 +6,7 @@ Also also (last one), This was originaly a school project :p
 # Dependencies:
 python  
 pygame
+pygbag (for running web version)
 
 # Setup:
 ## 1. Clone the repo and make a virtual environment:
@@ -28,10 +29,18 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 ## 4. Run it :3
+Normal (no debug and draw 3):
 ```sh
-#normal (no debug and draw 3)
 python main.py
 ```
+For web version using pygbag:
+```sh
+pygbag --ume_block 0 main.py
+```
+Runs on localhost:8000  
+There's a weird awaiting input screen so use --umn-block 0 to remove it  
+Currently dosent support the use of the extra options
+
 ## 5. Extra options:
 ```sh
 #see -h for help
