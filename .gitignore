@@ -3,5 +3,4 @@ __pycache__/
 *.pyc
 .venv
 .vscode
-assets
 .mypy_cache

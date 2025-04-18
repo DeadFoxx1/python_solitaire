@@ -82,7 +82,7 @@ class Card:
         also updates card size, yellow highlight size, and rect obj size (for when the screen size changes)
         """
         from setting import get_card_height, get_card_width
-        from assets import get_image
+        from assets.assets import get_image
 
         if self.value == 0:
             image = get_image(f"{self.suit}_empty")

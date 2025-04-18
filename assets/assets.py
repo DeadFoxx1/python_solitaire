@@ -1,9 +1,10 @@
 import json
 import pygame
+import os
 
-sprite_sheet = pygame.image.load("sheet.png").convert_alpha()
+sprite_sheet = pygame.image.load(os.getcwd() + "/assets/sheet.png").convert_alpha()
 
-with open("sheet.json", "r") as file:
+with open(os.getcwd() + "/assets/sheet.json", "r") as file:
     data = json.load(file)
 
 
