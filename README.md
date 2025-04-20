@@ -2,7 +2,7 @@
 # Features:
 1. Dynamic resize of cards, spacing, and offset (works for any size screen!)
 2. All cards loaded from a sprite sheet for increased speed (generated using [spright](https://github.com/houmain/spright))
-3. Option for custom number of cards to draw (the default is 3 but you can [change](#5-extra-options) it to whatever you want)
+3. Option for custom number of cards to draw (the default is 3 but you can [change](#extra-options) it to whatever you want)
 4. Optional [debug](#debug) output
 5. Web support using pygbag
 # About:
@@ -13,7 +13,8 @@ Also also (last one), This was originaly a school project :p
 # Dependencies:
 python  
 pygame  
-pygbag (for running web version)
+pygbag (optional for [building](#build-webapp-using-pygbag) web version)  
+docker (optional for [building](#build-webapp-using-pygbag) web version)
 
 # Setup:
 ## 1. Clone the repo and make a virtual environment:
@@ -40,7 +41,7 @@ Normal (no debug and draw 3):
 ```sh
 python main.py
 ```
-## 5. Extra options:
+# Extra options:
 ```sh
 #see -h for help
 python main.py -h
@@ -64,19 +65,6 @@ python main.py -d=True
 #you can use both args at the same time
 python main.py -d=True -c=1
 ```
-
-## 6. Build webapp using pygbag
-Get pygbag
-```sh
-pip install pygbag
-```
-build the webapp
-```sh
-pygbag --ume_block 0 main.py
-```
-Find built files in /build  
-There's a weird awaiting input screen so use ```--umn-block 0``` to remove it  
-Currently dosen't support the use of the extra options
 
 # DEBUG:  
 Run for debug output:
@@ -112,6 +100,30 @@ invalid move (3CTrue to 13HTrue)
 #a card drawing:
 draw
 ```
+
+# Build webapp using pygbag:
+(Currently dosen't support the use of the extra options)
+## 1. Get pygbag
+```sh
+pip install pygbag
+```
+## 2. build the webapp  
+There's a weird awaiting input screen so use ```--umn-block 0``` to remove it  
+```sh
+pygbag --ume_block 0 main.py
+```
+Find built files in /build  
+Test server runs on localhost:8000  
+## 3. build the docker image
+In the root of the project directory
+```sh
+docker build -t solitaire .
+```
+uses port 80 by default
+```sh
+docker run -p 80:80 solitaire
+```
+
 # License:
 
 This game is released under the GNU GPLv3. It comes with absolutely no warranty. Please see `LICENSE` for license details.
