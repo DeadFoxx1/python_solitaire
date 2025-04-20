@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/085c7a94-588e-4464-9fee-828ca60ee226)
 # About:
 I started this project as soon as I learned about what a python class is.  
 Also, I don't remember how I got the card assets. some I made myself (by coloring over others)    
