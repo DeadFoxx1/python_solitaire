@@ -106,3 +106,6 @@ invalid move (3CTrue to 13HTrue)
 #a card drawing:
 draw
 ```
+# License:
+
+This game is released under the GNU GPLv3. It comes with absolutely no warranty. Please see `LICENSE` for license details.
