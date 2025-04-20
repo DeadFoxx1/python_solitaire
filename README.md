@@ -1,4 +1,10 @@
 ![image](https://github.com/user-attachments/assets/085c7a94-588e-4464-9fee-828ca60ee226)
+# Features:
+1. Dynamic resize of cards, spacing, and offset (works for any size screen!)
+2. All cards loaded from a sprite sheet for increased speed (generated using [spright](https://github.com/houmain/spright))
+3. Option for custom number of cards to draw (the default is 3 but you can [change](#5-extra-options) it to whatever you want)
+4. Optional [debug](#debug) output
+5. Web support using pygbag
 # About:
 I started this project as soon as I learned about what a python class is.  
 Also, I don't remember how I got the card assets. some I made myself (by coloring over others)    
