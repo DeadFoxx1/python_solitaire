@@ -5,3 +5,4 @@ __pycache__/
 build
 .vscode
 .mypy_cache
+solitaire.tar
