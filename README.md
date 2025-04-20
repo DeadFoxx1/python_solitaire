@@ -40,14 +40,6 @@ Normal (no debug and draw 3):
 ```sh
 python main.py
 ```
-For web version using pygbag:
-```sh
-pygbag --ume_block 0 main.py
-```
-Runs on localhost:8000  
-There's a weird awaiting input screen so use --umn-block 0 to remove it  
-Currently dosent support the use of the extra options
-
 ## 5. Extra options:
 ```sh
 #see -h for help
@@ -72,6 +64,20 @@ python main.py -d=True
 #you can use both args at the same time
 python main.py -d=True -c=1
 ```
+
+## 6. Build webapp using pygbag
+Get pygbag
+```sh
+pip install pygbag
+```
+build the webapp
+```sh
+pygbag --ume_block 0 main.py
+```
+Find built files in /build  
+There's a weird awaiting input screen so use ```--umn-block 0``` to remove it  
+Currently dosen't support the use of the extra options
+
 # DEBUG:  
 Run for debug output:
 ```sh
