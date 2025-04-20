@@ -23,11 +23,11 @@ cd python_Solitaire
 python -m venv .venv
 ```
 ## 2. Activate the venv:
-### macOS/Linux:
+macOS/Linux:
 ```sh
 source .venv/bin/activate
 ```
-### On Windows:
+Windows:
 ```sh
 .\.venv\Scripts\activate
 ```
