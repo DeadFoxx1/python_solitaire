@@ -1,10 +1,17 @@
 import json
 import pygame
-import os
+import os, sys
 
-sprite_sheet = pygame.image.load(os.getcwd() + "/assets/sheet.png").convert_alpha()
+# This is some bull with pyinstaller 
+"""https://stackoverflow.com/questions/61881256/bundling-python-with-pyinstaller-onefile-add-data-not-working"""
+try:
+   wd = sys._MEIPASS
+except AttributeError:
+   wd = os.getcwd()
 
-with open(os.getcwd() + "/assets/sheet.json", "r") as file:
+sprite_sheet = pygame.image.load(os.path.join(wd,"assets/sheet.png")).convert_alpha()
+
+with open(os.path.join(wd,"assets/sheet.json"), "r") as file:
     data = json.load(file)
 
 
