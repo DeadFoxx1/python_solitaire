@@ -54,6 +54,8 @@ MAX_CARD_WIDTH = 169
 
 MAX_CARD_HEIGHT = 262
 
+MAX_DRAWNCARD_X_OFFSET = 40
+
 
 # the playing column automatically solves for this based on the amount of cards in the column
 # this sets the max length of the y_offset
