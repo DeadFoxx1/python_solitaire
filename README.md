@@ -5,10 +5,14 @@
 3. Option for custom number of cards to draw (the default is 3 but you can [change](#extra-options) it to whatever you want)
 4. Optional [debug](#debug) output
 5. Web support using pygbag
+
 # About:
 I started this project as soon as I learned about what a python class is.  
 Also, I don't remember how I got the card assets. some I made myself (by coloring over others)    
 Also also (last one), This was originaly a school project :p  
+
+# TLDR;
+Get the executable from the [release](https://github.com/DeadFoxx1/python_solitaire/releases/tag/v1.0.0) page to run it!
 
 # Dependencies:
 python  
