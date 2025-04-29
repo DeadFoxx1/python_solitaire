@@ -11,7 +11,7 @@ I started this project as soon as I learned about what a python class is.
 Also, I don't remember how I got the card assets. some I made myself (by coloring over others)    
 Also also (last one), This was originaly a school project :p  
 
-# TLDR;
+# TL;DR
 Get the executable from the [release](https://github.com/DeadFoxx1/python_solitaire/releases/tag/v1.0.0) page to run it!
 
 # Dependencies:
