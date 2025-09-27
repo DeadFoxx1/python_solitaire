@@ -9,7 +9,7 @@ async def main():
 
     # main game loop
     while True:
-        # checks for events and acts acis accordingly
+        # checks for events and acts accordingly
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()

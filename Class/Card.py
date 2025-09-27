@@ -28,7 +28,7 @@ class Card:
         if suit in SUITS or suit == 0:
             self.__suit = suit
         else:
-            raise ValueError("Suit Must be defined in settings")
+            raise ValueError("Suit must be defined in settings")
 
     @property
     def value(self):
