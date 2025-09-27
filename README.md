@@ -7,9 +7,9 @@
 5. Web support using pygbag
 
 # About:
-I started this project as soon as I learned about what a python class is.  
+I started this project as soon as I learned about what a python class was.
 Also, I don't remember how I got the card assets. some I made myself (by coloring over others)    
-Also also (last one), This was originaly a school project :p  
+Also also (last one), This was originally a school project :p  
 
 # TL;DR
 Get the executable from the [release](https://github.com/DeadFoxx1/python_solitaire/releases/tag/v1.0.0) page to run it!
@@ -23,8 +23,8 @@ docker (optional for [building](#build-webapp-using-pygbag) web version)
 # Setup:
 ## 1. Clone the repo and make a virtual environment:
 ```sh
-git clone https://github.com/DeadFoxx1/python_Solitaire
-cd python_Solitaire
+git clone https://github.com/DeadFoxx1/python_solitaire
+cd python_solitaire
 python -m venv .venv
 ```
 ## 2. Activate the venv:
